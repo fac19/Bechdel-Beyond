@@ -1,60 +1,77 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import  Grid  from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-import getData from "../utils/getData";
+import getData from '../utils/getData';
 
 const useStyles = makeStyles((theme) => ({
+  card: {
+    width: '300px',
+    height: '400px',
+    margin: '.5rem',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
   media: {
-    height: '300px',
-    width: '200px', 
+    height: '100px',
+  },
+  title: {
+    fontSize: 12,
+    fontWeight: 'bold',
   },
 }));
 
 export default function AllFilms() {
-  const [filmData, setFilmData] = React.useState('')
-  const classes = useStyles()
+  const [filmData, setFilmData] = React.useState('');
+  const classes = useStyles();
 
   React.useEffect(() => {
-    getData('/films').then(data => setFilmData(data))}, [])
-  
-    if (!filmData) return null
+    getData('/films').then((data) => setFilmData(data));
+  }, []);
 
-  console.log(filmData)
+  if (!filmData) return null;
+
+  console.log(filmData);
 
   const showPoster = (poster) => {
-    if (poster.status === 404){
-     return "https://stockpictures.io/wp-content/uploads/2020/01/image-not-found-big-768x432.png"
-
+    if (poster.status === 404) {
+      return 'https://stockpictures.io/wp-content/uploads/2020/01/image-not-found-big-768x432.png';
     }
-    return poster
-  }
+    return poster;
+  };
 
-
-return (
+  return (
     <div>
       <Grid container spacing={40} justify="center">
-        {filmData.map(film => (
+        {filmData.map((film) => (
           <Grid item key={film.title}>
             <Card>
-              <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={showPoster(film.poster)}
-          title={film.title}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {film.title}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+              <CardActionArea className={classes.card}>
+                <CardMedia
+                  className={classes.media}
+                  component={'img'}
+                  src={showPoster(film.poster)}
+                  title={film.title}
+                />
+                <CardContent gutterBottom>
+                  <Typography variant="h5" component="h3">
+                    {film.title}
+                  </Typography>
+                  <Typography className={classes.title}>
+                    {'Synopsis: '}
+                  </Typography>
+                  <Typography variant="p" component="p">
+                    {film.plot}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
             </Card>
           </Grid>
         ))}
@@ -62,4 +79,3 @@ return (
     </div>
   );
 }
-
