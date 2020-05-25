@@ -2,6 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
@@ -13,6 +15,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { useHistory, Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -77,8 +80,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PersistentDrawerLeft() {
+export default function Navbar({ currentPage, setCurrentPage }) {
   const classes = useStyles();
+  const history = useHistory();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -90,8 +94,33 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
+  const logoutHandler = () => {
+    // localStorage.removeItem('auth');
+    //Remove JWT Token
+    handleDrawerClose();
+    history.push('/');
+  };
+  const navItems = [
+    {
+      title: 'Search Movies',
+      titleHref: '/',
+    },
+    {
+      title: 'Sign Up',
+      titleHref: '/signup',
+    },
+    {
+      title: 'Login',
+      titleHref: '/login',
+    },
+    {
+      title: 'About',
+      titleHref: '/about',
+    },
+  ];
   return (
     <div className={classes.root}>
+      <CssBaseline />
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
@@ -100,7 +129,7 @@ export default function PersistentDrawerLeft() {
       >
         <Toolbar>
           <IconButton
-            color="black"
+            color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
@@ -108,7 +137,7 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap color="black">
+          <Typography variant="h6" noWrap color="primary">
             Bechdel & Beyond
           </Typography>
         </Toolbar>
@@ -132,19 +161,28 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </div>
         <List>
-          {['Search Movies', 'My Page', 'What is the Bechdel Test'].map(
-            (text) => (
-              <ListItem button key={text}>
-                <ListItemText primary={text} />
-              </ListItem>
-            ),
-          )}
+          {navItems.map((item) => (
+            <ListItem
+              onClick={() => {
+                handleDrawerClose();
+                setCurrentPage(item.title);
+              }}
+              button
+              component={Link}
+              key={item.title}
+              to={item.titleHref}
+            >
+              <ListItemText primary={item.title} />
+            </ListItem>
+          ))}
         </List>
         <Divider />
         <List>
-          <ListItem button key={'Logout'}>
-            <ListItemText primary={'Logout'} />
-          </ListItem>
+          {['Log out'].map((text) => (
+            <ListItem onClick={logoutHandler} button key={text}>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
         </List>
       </Drawer>
     </div>

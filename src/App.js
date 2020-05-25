@@ -1,47 +1,45 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+
 import MenuAppBar from './components/MenuAppBar';
-import AllFilms from './components/AllFilms';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import AllFilms from './components/Home/AllFilms';
+import SignupPage from './components/UserTasks/Signup/Signup';
+import MoviePage from './components/Movie/MoviePage';
+import SignIn from './components/UserTasks/Login/Login';
+import AboutPage from './components/About/AboutPage';
+import ReviewPage from './components/Review/ReviewPage';
+import UserPage from './components/UserTasks/UserPage/UserPage';
 
 function App() {
+  const [currentPage, setCurrentPage] = React.useState('HOME');
+
   return (
-    <div>
-      <MenuAppBar />
-      <AllFilms />
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <MenuAppBar
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
+        </header>
+        <Switch>
+          {/* <Route exact path="/" component={AllFilms}></Route> */}
+          <Route exact path="/signup" component={SignupPage}></Route>
+          <Route exact path="/login" component={SignIn}></Route>
+          {/* <Route exact path="/create-review" component={ReviewPage}></Route>
+          <Route exact path="/user-profile" component={UserPage}></Route>
+          <Route exact path="/about" component={AboutPage}></Route>
+          <Route exact path="/movie" component={MoviePage}></Route> */}
+          <Route path="*" render={() => <Redirect to="/" />} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
 export default App;
-
-/*
- <Router>
-      <div>
-        <MenuAppBar />
-          <ul>
-            <li>
-              <Link to="/">All Films</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-          </ul>
-        </nav>
-            <Switch>
-            <Route path="/">
-              <AllFilms />
-            </Route>
-            <Route path=`/${film.title}`>
-              <Users />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-
-*/
