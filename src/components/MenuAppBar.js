@@ -15,7 +15,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, Redirect } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -80,27 +80,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar({ currentPage, setCurrentPage }) {
+export default function Navbar({ currentPage, setCurrentPage, accessToken }) {
   const classes = useStyles();
   const history = useHistory();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  const logoutHandler = () => {
-    // localStorage.removeItem('auth');
-    //Remove JWT Token
-    handleDrawerClose();
-    history.push('/');
-  };
-  const navItems = [
+  const [navItems, setNavItems] = React.useState([
     {
       title: 'Search Movies',
       titleHref: '/',
@@ -117,7 +102,56 @@ export default function Navbar({ currentPage, setCurrentPage }) {
       title: 'About',
       titleHref: '/about',
     },
-  ];
+  ]);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+  const logoutHandler = () => {
+    handleDrawerClose();
+    window.localStorage.removeItem('access token');
+    history.push('/');
+  };
+
+  React.useEffect(() => {
+    if (accessToken) {
+      setNavItems([
+        {
+          title: 'Search Movies',
+          titleHref: '/',
+        },
+        {
+          title: 'About',
+          titleHref: '/about',
+        },
+      ]);
+    } else {
+      setNavItems([
+        {
+          title: 'Search Movies',
+          titleHref: '/',
+        },
+        {
+          title: 'Sign Up',
+          titleHref: '/signup',
+        },
+        {
+          title: 'Login',
+          titleHref: '/login',
+        },
+        {
+          title: 'About',
+          titleHref: '/about',
+        },
+      ]);
+    }
+  }, []);
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -178,11 +212,9 @@ export default function Navbar({ currentPage, setCurrentPage }) {
         </List>
         <Divider />
         <List>
-          {['Log out'].map((text) => (
-            <ListItem onClick={logoutHandler} button key={text}>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem onClick={logoutHandler} button key={'Log out'}>
+            <ListItemText primary={'Log out'} />
+          </ListItem>
         </List>
       </Drawer>
     </div>

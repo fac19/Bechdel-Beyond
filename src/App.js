@@ -26,22 +26,33 @@ function App() {
           <MenuAppBar
             setCurrentPage={setCurrentPage}
             currentPage={currentPage}
+            accessToken={accessToken}
           />
         </header>
         <Switch>
           {/* <Route exact path="/" component={AllFilms}></Route> */}
-          {accessToken ? (
-            <Route exact path="/signup" component={SignupPage}></Route>
-          ) : (
-            ''
-          )}
-          {accessToken ? (
-            <Route exact path="/login" component={SignIn}></Route>
+          <Route
+            exact
+            path="/signup"
+            component={SignupPage}
+            accessToken={accessToken}
+          ></Route>
+          {!accessToken ? (
+            <Route
+              exact
+              path="/login"
+              component={SignIn}
+              accessToken={accessToken}
+            ></Route>
           ) : (
             ''
           )}
           {/* <Route exact path="/create-review" component={ReviewPage}></Route> */}
-          <Route exact path="/user-profile" component={UserPage}></Route>
+          {/* {accessToken ? (
+            <Route exact path="/user-profile" component={UserPage}></Route>
+          ) : (
+            ''
+          )} */}
           {/*<Route exact path="/about" component={AboutPage}></Route> */}
           {/* <Route exact path="/movie" component={MoviePage}></Route */}
           <Route path="*" render={() => <Redirect to="/" />} />
