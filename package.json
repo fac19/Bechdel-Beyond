@@ -12,15 +12,18 @@
   },
   "jest": {
 		"collectCoverageFrom": [
-			"!**/node_modules/**",
-			"!**/coverage/**"
-		]
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/*.test.js",
+      "**/*.{js,jsx}"
+    ]
 	},
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"test": "react-scripts test --coverage",
-		"eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "react-scripts test",
+    "test:report": "react-scripts test --coverage --watchAll=false"
 	},
 	"husky": {
 		"hooks": {
