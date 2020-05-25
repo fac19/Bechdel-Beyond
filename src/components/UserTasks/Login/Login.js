@@ -56,17 +56,17 @@ export default function SignIn() {
   const [token, setToken] = React.useState('');
 
   React.useEffect(() => {
-    console.log(token);
-    console.log(userEmail, userPassword);
-    fetch('https://apibechdel.herokuapp.com/login', {
-      headers: { 'content-type': 'application/JSON' },
-      method: 'POST',
-      body: JSON.stringify({ email: userEmail, password: userPassword }),
-    })
-      .then((response) => response.json())
-      .then((json) => setToken(json.token))
-      .catch((error) => console.error(error))
-      .finally(() => setIsSubmitted(false));
+    if (isSubmitted) {
+      fetch('https://apibechdel.herokuapp.com/login', {
+        headers: { 'content-type': 'application/JSON' },
+        method: 'POST',
+        body: JSON.stringify({ email: userEmail, password: userPassword }),
+      })
+        .then((response) => response.json())
+        .then((json) => window.localStorage.setItem('access token', json.token))
+        .catch((error) => console.error(error))
+        .finally(() => setIsSubmitted(false));
+    }
   }, [isSubmitted]);
 
   return (
@@ -112,7 +112,7 @@ export default function SignIn() {
             onChange={(e) => setUserPassword(e.target.value)}
           />
           <Typography>
-            {isSubmitted && token ? '' : 'User Email or Password is incorrect'}
+            {isSubmitted && !token ? 'User Email or Password is incorrect' : ''}
           </Typography>
           <Button
             type="submit"

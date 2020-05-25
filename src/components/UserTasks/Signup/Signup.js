@@ -57,21 +57,23 @@ export default function SignUp() {
   const [token, setToken] = React.useState('');
 
   React.useEffect(() => {
-    console.log(token);
-    console.log(userEmail, userPassword);
-    fetch('https://apibechdel.herokuapp.com/signup', {
-      headers: { 'content-type': 'application/JSON' },
-      method: 'POST',
-      body: JSON.stringify({
-        username: username,
-        email: userEmail,
-        password: userPassword,
-      }),
-    })
-      .then((response) => response.json())
-      .then((json) => setToken(json.token))
-      .catch((error) => console.error(error))
-      .finally(() => setIsSubmitted(false));
+    if (isSubmitted) {
+      fetch('https://apibechdel.herokuapp.com/signup', {
+        headers: { 'content-type': 'application/JSON' },
+        method: 'POST',
+        body: JSON.stringify({
+          username: username,
+          email: userEmail,
+          password: userPassword,
+        }),
+      })
+        .then((response) => response.json())
+        .then((json) => window.localStorage.setItem('access token', json.token))
+        .catch((error) => {
+          setIsSubmitted(false);
+          return console.error(error);
+        });
+    }
   }, [isSubmitted]);
 
   return (

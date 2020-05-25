@@ -16,6 +16,7 @@ import ReviewPage from './components/Review/ReviewPage';
 import UserPage from './components/UserTasks/UserPage/UserPage';
 
 function App() {
+  const accessToken = window.localStorage.getItem('access token');
   const [currentPage, setCurrentPage] = React.useState('HOME');
 
   return (
@@ -29,12 +30,20 @@ function App() {
         </header>
         <Switch>
           {/* <Route exact path="/" component={AllFilms}></Route> */}
-          <Route exact path="/signup" component={SignupPage}></Route>
-          <Route exact path="/login" component={SignIn}></Route>
-          {/* <Route exact path="/create-review" component={ReviewPage}></Route>
+          {accessToken ? (
+            <Route exact path="/signup" component={SignupPage}></Route>
+          ) : (
+            ''
+          )}
+          {accessToken ? (
+            <Route exact path="/login" component={SignIn}></Route>
+          ) : (
+            ''
+          )}
+          {/* <Route exact path="/create-review" component={ReviewPage}></Route> */}
           <Route exact path="/user-profile" component={UserPage}></Route>
-          <Route exact path="/about" component={AboutPage}></Route>
-          <Route exact path="/movie" component={MoviePage}></Route> */}
+          {/*<Route exact path="/about" component={AboutPage}></Route> */}
+          {/* <Route exact path="/movie" component={MoviePage}></Route */}
           <Route path="*" render={() => <Redirect to="/" />} />
         </Switch>
       </div>
