@@ -7,6 +7,5 @@ cache:
   directories:
     - node_modules
 script:
-  - npm intall -g codecov
   - npm test  --coverage && codecov
   - npm run build
