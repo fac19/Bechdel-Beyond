@@ -7,13 +7,13 @@ import {
 } from 'react-router-dom';
 
 import MenuAppBar from './components/MenuAppBar';
-import AllFilms from './components/Home/AllFilms';
+// import AllFilms from './components/Home/AllFilms';
 import SignUp from './components/UserTasks/Signup/Signup';
-import MoviePage from './components/Movie/MoviePage';
+// import MoviePage from './components/Movie/MoviePage';
 import LogIn from './components/UserTasks/Login/Login';
-import AboutPage from './components/About/AboutPage';
-import ReviewPage from './components/Review/ReviewPage';
-import UserPage from './components/UserTasks/UserPage/UserPage';
+// import AboutPage from './components/About/AboutPage';
+// import ReviewPage from './components/Review/ReviewPage';
+// import UserPage from './components/UserTasks/UserPage/UserPage';
 
 function App() {
 	const accessToken = window.localStorage.getItem('access token');

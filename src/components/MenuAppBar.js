@@ -15,7 +15,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { useHistory, Link, Redirect } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
