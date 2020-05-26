@@ -15,147 +15,151 @@ import Container from '@material-ui/core/Container';
 import { Link as RouterLink } from 'react-router-dom';
 
 function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
+	return (
+		<Typography variant="body2" color="textSecondary" align="center">
+			{'Copyright © '}
+			<Link color="inherit" href="https://material-ui.com/">
+				Your Website
+			</Link>{' '}
+			{new Date().getFullYear()}
+			{'.'}
+		</Typography>
+	);
 }
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
+	paper: {
+		marginTop: theme.spacing(8),
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+	},
+	avatar: {
+		margin: theme.spacing(1),
+		backgroundColor: theme.palette.secondary.main,
+	},
+	form: {
+		width: '100%', // Fix IE 11 issue.
+		marginTop: theme.spacing(3),
+	},
+	submit: {
+		margin: theme.spacing(3, 0, 2),
+	},
 }));
 
-export default function SignUp() {
-  const classes = useStyles();
+export default function Signup({ setLoggedIn }) {
+	const classes = useStyles();
 
-  const [isSubmitted, setIsSubmitted] = React.useState(false);
-  const [userEmail, setUserEmail] = React.useState('');
-  const [username, setUsername] = React.useState('');
-  const [userPassword, setUserPassword] = React.useState('');
-  const [token, setToken] = React.useState('');
+	const [userEmail, setUserEmail] = React.useState('');
+	const [fetchState, setFetchState] = React.useState('');
+	const [username, setUsername] = React.useState('');
+	const [userPassword, setUserPassword] = React.useState('');
+	const [token, setToken] = React.useState('');
 
-  React.useEffect(() => {
-    if (isSubmitted) {
-      fetch('https://apibechdel.herokuapp.com/signup', {
-        headers: { 'content-type': 'application/JSON' },
-        method: 'POST',
-        body: JSON.stringify({
-          username: username,
-          email: userEmail,
-          password: userPassword,
-        }),
-      })
-        .then((response) => response.json())
-        .then((json) => window.localStorage.setItem('access token', json.token))
-        .catch((error) => {
-          setIsSubmitted(false);
-          return console.error(error);
-        });
-    }
-  }, [isSubmitted]);
+	return (
+		<Container component="main" maxWidth="xs">
+			<CssBaseline />
+			<div className={classes.paper}>
+				<Avatar className={classes.avatar}>
+					<LockOutlinedIcon />
+				</Avatar>
+				<Typography component="h1" variant="h5">
+					Sign up
+				</Typography>
+				<form
+					className={classes.form}
+					noValidate
+					onSubmit={(e) => {
+						setFetchState('Signing Up...');
+						e.preventDefault();
+						fetch('https://localhost:3001/signup', {
+							headers: { 'content-type': 'application/JSON' },
+							method: 'POST',
+							body: JSON.stringify({
+								username: username,
+								email: userEmail,
+								password: userPassword,
+							}),
+						})
+							.then((response) => {
+								if (response.ok) {
+									return response.json();
+								} else {
+									throw new Error('Fetch failed');
+								}
+							})
+							.then((json) =>
+								window.localStorage.setItem('access token', json.token),
+							)
+							.then(setLoggedIn(true))
+							.catch((error) => setFetchState('error'));
+					}}
+				>
+					<Grid container spacing={2}>
+						<Grid item xs={12}>
+							<TextField
+								autoComplete="username"
+								name="username"
+								variant="outlined"
+								required
+								fullWidth
+								id="Username"
+								label="Username"
+								autoFocus
+								onChange={(e) => setUsername(e.target.value)}
+							/>
+						</Grid>
 
-  return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
-        <form
-          className={classes.form}
-          noValidate
-          onSubmit={(e) => {
-            e.preventDefault();
-            setIsSubmitted(true);
-          }}
-        >
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="username"
-                name="username"
-                variant="outlined"
-                required
-                fullWidth
-                id="Username"
-                label="Username"
-                autoFocus
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </Grid>
-
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                onChange={(e) => setUserEmail(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                onChange={(e) => setUserPassword(e.target.value)}
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link component={RouterLink} to="/login" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-    </Container>
-  );
+						<Grid item xs={12}>
+							<TextField
+								variant="outlined"
+								required
+								fullWidth
+								id="email"
+								label="Email Address"
+								name="email"
+								autoComplete="email"
+								onChange={(e) => setUserEmail(e.target.value)}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<TextField
+								variant="outlined"
+								required
+								fullWidth
+								name="password"
+								label="Password"
+								type="password"
+								id="password"
+								autoComplete="current-password"
+								onChange={(e) => setUserPassword(e.target.value)}
+							/>
+						</Grid>
+					</Grid>
+					<Button
+						type="submit"
+						fullWidth
+						variant="contained"
+						color="primary"
+						className={classes.submit}
+					>
+						Sign Up
+					</Button>
+					<Typography>
+						{fetchState === 'error' ? 'Error: cannot sign up' : fetchState}
+					</Typography>
+					<Grid container justify="flex-end">
+						<Grid item>
+							<Link component={RouterLink} to="/login" variant="body2">
+								Already have an account? Sign in
+							</Link>
+						</Grid>
+					</Grid>
+				</form>
+			</div>
+			<Box mt={5}>
+				<Copyright />
+			</Box>
+		</Container>
+	);
 }

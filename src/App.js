@@ -8,7 +8,7 @@ import {
 
 import MenuAppBar from './components/MenuAppBar';
 import AllFilms from './components/Home/AllFilms';
-import SignupPage from './components/UserTasks/Signup/Signup';
+import SignUp from './components/UserTasks/Signup/Signup';
 import MoviePage from './components/Movie/MoviePage';
 import LogIn from './components/UserTasks/Login/Login';
 import AboutPage from './components/About/AboutPage';
@@ -37,8 +37,13 @@ function App() {
 					<Route
 						exact
 						path="/signup"
-						component={SignupPage}
-						accessToken={accessToken}
+						render={() =>
+							loggedIn ? (
+								<Redirect to="/" />
+							) : (
+								<SignUp setLoggedIn={setLoggedIn} />
+							)
+						}
 					/>
 
 					<Route

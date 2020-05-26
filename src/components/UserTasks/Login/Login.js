@@ -69,7 +69,7 @@ export default function LogIn({ setLoggedIn }) {
 					noValidate
 					onSubmit={(e) => {
 						e.preventDefault();
-						setFetchState('loading');
+						setFetchState('Loading..');
 						fetch('http://localhost:3001/login', {
 							headers: { 'content-type': 'application/JSON' },
 							method: 'POST',
