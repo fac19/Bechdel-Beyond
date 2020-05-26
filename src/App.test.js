@@ -1,9 +1,19 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders menu bar components correctly when user is not logged in', () => {
+	const { getByText } = render(<App />);
+	expect(getByText(/Search Movies/)).toBeTruthy();
+	expect(getByText(/About/)).toBeTruthy();
+	expect(getByText(/Login/)).toBeTruthy();
+	expect(getByText(/Sign Up/i)).toBeTruthy();
 });
+
+// test('renders menu bar components correctly when user is logged in', () => {
+// 	const { getByText } = render(<App />);
+// 	expect(getByText(/Search Movies/)).toBeTruthy();
+// 	expect(getByText(/About/)).toBeTruthy();
+// 	expect(getByText(/Login/)).toBeTruthy();
+// 	expect(getByText(/Sign Up/i)).toBeTruthy();
+// });
