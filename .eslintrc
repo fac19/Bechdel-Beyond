@@ -1,7 +1,6 @@
 {
 	"extends": [
 		"react-app",
-		"airbnb",
 		"plugin:jsx-a11y/recommended",
 		"prettier",
 		"prettier/react"
@@ -10,9 +9,15 @@
 		"prefer-promise-reject-errors": "off",
 		"max-len": [
 			"error",
-			{ "code": 80, "ignoreComments": true, "ignoreUrls": true }
+			{
+				"code": 150,
+				"ignoreComments": true,
+				"ignoreUrls": true
+			}
 		],
-		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/jsx-filename-extension": [1, {
+			"extensions": [".js", ".jsx"]
+		}],
 		"react/jsx-one-expression-per-line": [0]
 	},
 	"plugins": ["jsx-a11y"],
