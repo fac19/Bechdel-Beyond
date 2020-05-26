@@ -47,7 +47,7 @@ function App() {
           ) : (
             ''
           )}
-          {/* <Route exact path="/create-review" component={ReviewPage}></Route> */}
+          <Route exact path="/create-review" component={ReviewPage}></Route>
           {/* {accessToken ? (
             <Route exact path="/user-profile" component={UserPage}></Route>
           ) : (
