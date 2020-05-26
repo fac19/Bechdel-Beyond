@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function SignIn({ accessToken, setLoggedIn }) {
+export default function LogIn({ setLoggedIn }) {
 	const classes = useStyles();
 
 	const [fetchState, setFetchState] = React.useState('');

@@ -10,7 +10,7 @@ import MenuAppBar from './components/MenuAppBar';
 import AllFilms from './components/Home/AllFilms';
 import SignupPage from './components/UserTasks/Signup/Signup';
 import MoviePage from './components/Movie/MoviePage';
-import SignIn from './components/UserTasks/Login/Login';
+import LogIn from './components/UserTasks/Login/Login';
 import AboutPage from './components/About/AboutPage';
 import ReviewPage from './components/Review/ReviewPage';
 import UserPage from './components/UserTasks/UserPage/UserPage';
@@ -19,8 +19,6 @@ function App() {
 	const accessToken = window.localStorage.getItem('access token');
 	const [loggedIn, setLoggedIn] = React.useState(null);
 	const [currentPage, setCurrentPage] = React.useState('HOME');
-
-	console.log(loggedIn);
 
 	return (
 		<Router>
@@ -50,7 +48,7 @@ function App() {
 							loggedIn ? (
 								<Redirect to="/" />
 							) : (
-								<SignIn accessToken={accessToken} setLoggedIn={setLoggedIn} />
+								<LogIn setLoggedIn={setLoggedIn} />
 							)
 						}
 					/>
