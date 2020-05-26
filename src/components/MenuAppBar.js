@@ -108,7 +108,6 @@ export default function Navbar({
 	};
 
 	React.useEffect(() => {
-		console.log('NavBar login', loggedIn);
 		if (loggedIn) {
 			setNavItems([
 				{
