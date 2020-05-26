@@ -1,6 +1,9 @@
+[![Build Status](https://travis-ci.com/fac19/Bechdel-Beyond.svg?branch=master)](https://travis-ci.com/fac19/Bechdel-Beyond) [![codecov](https://codecov.io/gh/fac19/Bechdel-Beyond/branch/master/graph/badge.svg)](https://codecov.io/gh/fac19/Bechdel-Beyond)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-TEST CHANGE THIS TEXT
+You can find the backend API repo on this link https://github.com/fac19/Bechdel-Beyond-backend
 
 ## Available Scripts
 
