@@ -21,10 +21,6 @@ function App() {
 	const [currentPage, setCurrentPage] = React.useState('HOME');
 
 	return (
-      <div>
-        <MenuAppBar />
-        <AllFilms />
-      </div>
 		<Router>
 			<div className="App">
 				<header className="App-header">
