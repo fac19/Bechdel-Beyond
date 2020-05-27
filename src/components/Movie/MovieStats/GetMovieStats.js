@@ -1,15 +1,18 @@
 import React from 'react';
 
-export function GetMovieStatsCrew() {
+export function GetMovieStatsCrew({ statsCrewData }) {
 	// film stats
 	// cast parity
 	// crew parity
-	return <h2>this is crew stats</h2>;
+	if (!statsCrewData) return <h1>Locading</h1>;
+	console.log(statsCrewData);
+	return <h2>{statsCrewData.gender_parity.male}</h2>;
 }
 
-export function GetMovieStatsCast() {
+export function GetMovieStatsCast({ statsCastData }) {
 	// film stats
 	// cast parity
 	// crew parity
-	return <h1>this is cast stats</h1>;
+
+	return <h1>{statsCastData.gender_parity_cast.female}</h1>;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -7,8 +8,6 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 // import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-
-import getData from '../../utils/getData';
 
 const useStyles = makeStyles((theme) => ({
 	card: {
@@ -28,13 +27,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function AllFilms() {
-	const [filmData, setFilmData] = React.useState('');
+export default function AllFilms({ filmData, setFilmData }) {
 	const classes = useStyles();
-
-	React.useEffect(() => {
-		getData('/films').then((data) => setFilmData(data));
-	}, []);
 
 	if (!filmData) return null;
 
@@ -50,7 +44,7 @@ export default function AllFilms() {
 			<Grid container justify="center">
 				{filmData.map((film) => (
 					<Grid item key={film.movapi_id}>
-						<Card>
+						<Card component={Link} to={`/movie/${film.title}`}>
 							<CardActionArea className={classes.card}>
 								<CardMedia
 									className={classes.media}

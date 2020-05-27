@@ -18,6 +18,8 @@ import LogIn from './components/UserTasks/Login/Login';
 // import ReviewPage from './components/Review/ReviewPage';
 // import UserPage from './components/UserTasks/UserPage/UserPage';
 
+import getData from './utils/getData';
+
 const useStyles = makeStyles((theme) => ({
 	root: {
 		marginTop: theme.spacing(8),
@@ -25,10 +27,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 function App() {
 	const classes = useStyles();
+	const [filmData, setFilmData] = React.useState('');
+
 	const accessToken = window.localStorage.getItem('access token');
 	const [loggedIn, setLoggedIn] = React.useState(null);
 	const [currentPage, setCurrentPage] = React.useState('HOME');
 
+	React.useEffect(() => {
+		getData('/films').then((data) => setFilmData(data));
+	}, []);
 	return (
 		<Router>
 			<div className="App">
@@ -42,7 +49,13 @@ function App() {
 					/>
 				</header>
 				<Switch>
-					<Route exact path="/" component={AllFilms}></Route>
+					<Route
+						exact
+						path="/"
+						component={() => (
+							<AllFilms filmData={filmData} setFilmData={setFilmData} />
+						)}
+					></Route>
 					<Route
 						exact
 						path="/signup"
@@ -74,7 +87,7 @@ function App() {
             ''
           )} */}
 					{/*<Route exact path="/about" component={AboutPage}></Route> */}
-					<Route exact path="/movie" component={MoviePage}></Route>
+					<Route exact path="/movie/:title" component={MoviePage}></Route>
 					<Route path="*" render={() => <Redirect to="/" />} />
 				</Switch>
 			</div>

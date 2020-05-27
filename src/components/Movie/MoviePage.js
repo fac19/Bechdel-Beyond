@@ -7,6 +7,7 @@ import { Button } from '@material-ui/core';
 
 import GetMovie from './Movie/GetMovie';
 import GetMovieDetails from './MovieDetails/GetMovieDetails';
+import getData from '../../utils/getData';
 import {
 	GetMovieStatsCast,
 	GetMovieStatsCrew,
@@ -23,31 +24,54 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function DisplayMovie() {
+export default function DisplayMovie({ match: { params } }) {
 	const classes = useStyles();
+	const [movieData, setMovieData] = React.useState('');
+	const [reviewData, setReviewData] = React.useState('');
+	const [statsCrewData, setCrewStatsData] = React.useState('');
+	const [statsCastData, setCastStatsData] = React.useState('');
+
+	React.useEffect(() => {
+		getData(`/film/${params.title}`).then((data) => setMovieData(data));
+		getData(`/film/${params.title}/reviews`).then((data) =>
+			setReviewData(data),
+		);
+		getData(`/film/${params.title}/crew`).then((data) =>
+			setCrewStatsData(data),
+		);
+		getData(`/film/${params.title}/cast`).then((data) =>
+			setCastStatsData(data),
+		);
+	}, []);
+
+	if (!movieData || !reviewData || !statsCrewData || !statsCastData)
+		return <p>Loading</p>;
 
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>
 				<Grid item xs={12}>
 					<Paper className={classes.paper}>
-						<GetMovie />
+						<GetMovie movieData={movieData} reviewData={reviewData} />
 					</Paper>
 				</Grid>
 				<Grid item xs={12}>
 					<Paper className={classes.paper}>
-						<GetMovieDetails />
-						<Button variant="outlined">Write review</Button>
+						<GetMovieDetails
+							movieData={movieData}
+							statsCrewData={statsCrewData}
+						/>
+						<Button variant="outlined">Write Review</Button>
 					</Paper>
 				</Grid>
 				<Grid item xs={6}>
 					<Paper className={classes.paper}>
-						<GetMovieStatsCrew />
+						<GetMovieStatsCrew statsCrewData={statsCrewData} />
 					</Paper>
 				</Grid>
 				<Grid item xs={6}>
 					<Paper className={classes.paper}>
-						<GetMovieStatsCast />
+						<GetMovieStatsCast statsCastData={statsCastData} />
 					</Paper>
 				</Grid>
 			</Grid>
