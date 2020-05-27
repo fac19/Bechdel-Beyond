@@ -77,6 +77,24 @@ export default function ReviewPage() {
 		setForm({ ...bechdelForm, [name]: value });
 	};
 
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		fetch('https://localhost:3001/films:title/reviews', {
+			headers: { 'content-type': 'application/JSON' },
+			method: 'POST',
+			body: JSON.stringify(bechdelForm),
+		})
+			.then((response) => {
+				if (response.ok) {
+					return response.json();
+				} else {
+					throw new Error('Could not post review');
+				}
+			})
+			.catch((err) => console.log(err));
+	};
+	//window.localStorage.setItem('access token', json.token);
+
 	return (
 		<>
 			<Container component="main" maxWidth="xs">
@@ -181,39 +199,39 @@ export default function ReviewPage() {
 								<RadioGroup
 									aria-label={reviewQuestion}
 									checked={false}
-									name="bechdel_3"
+									name="Beyond"
 									row
 									value={radioValue}
 								>
 									<FormControlLabel
-										value="true"
-										name="bechdel_3"
+										value="0"
+										name="beyond"
 										control={<Radio onClick={handleClick} />}
-										label="Yes"
+										label="👎"
 									/>
 									<FormControlLabel
-										value="false"
-										name="bechdel_3"
+										value="1"
+										name="beyond"
 										control={<Radio onClick={handleClick} />}
-										label="No"
+										label="👎"
 									/>
 									<FormControlLabel
-										value="false"
-										name="bechdel_3"
+										value="2"
+										name="beyond"
 										control={<Radio onClick={handleClick} />}
-										label="No"
+										label="👉"
 									/>
 									<FormControlLabel
-										value="false"
-										name="bechdel_3"
+										value="3"
+										name="beyond"
 										control={<Radio onClick={handleClick} />}
-										label="No"
+										label="👍"
 									/>
 									<FormControlLabel
-										value="false"
-										name="bechdel_3"
+										value="4"
+										name="beyond"
 										control={<Radio onClick={handleClick} />}
-										label="No"
+										label="👍"
 									/>
 								</RadioGroup>
 								<TextField
