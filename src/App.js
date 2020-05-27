@@ -6,16 +6,25 @@ import {
 	Redirect,
 } from 'react-router-dom';
 
+import { makeStyles } from '@material-ui/core/styles';
+
 import MenuAppBar from './components/MenuAppBar';
-// import AllFilms from './components/Home/AllFilms';
+import AllFilms from './components/Home/AllFilms';
 import SignUp from './components/UserTasks/Signup/Signup';
-// import MoviePage from './components/Movie/MoviePage';
+import MoviePage from './components/Movie/MoviePage';
 import LogIn from './components/UserTasks/Login/Login';
+
 // import AboutPage from './components/About/AboutPage';
 // import ReviewPage from './components/Review/ReviewPage';
 // import UserPage from './components/UserTasks/UserPage/UserPage';
 
+const useStyles = makeStyles((theme) => ({
+	root: {
+		marginTop: theme.spacing(8),
+	},
+}));
 function App() {
+	const classes = useStyles();
 	const accessToken = window.localStorage.getItem('access token');
 	const [loggedIn, setLoggedIn] = React.useState(null);
 	const [currentPage, setCurrentPage] = React.useState('HOME');
@@ -23,7 +32,7 @@ function App() {
 	return (
 		<Router>
 			<div className="App">
-				<header className="App-header">
+				<header className={`App-header ${classes.root}`}>
 					<MenuAppBar
 						setCurrentPage={setCurrentPage}
 						currentPage={currentPage}
@@ -33,7 +42,7 @@ function App() {
 					/>
 				</header>
 				<Switch>
-					{/* <Route exact path="/" component={AllFilms}></Route> */}
+					<Route exact path="/" component={AllFilms}></Route>
 					<Route
 						exact
 						path="/signup"
@@ -65,7 +74,7 @@ function App() {
             ''
           )} */}
 					{/*<Route exact path="/about" component={AboutPage}></Route> */}
-					{/* <Route exact path="/movie" component={MoviePage}></Route */}
+					<Route exact path="/movie" component={MoviePage}></Route>
 					<Route path="*" render={() => <Redirect to="/" />} />
 				</Switch>
 			</div>
