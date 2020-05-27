@@ -48,21 +48,33 @@ export default function ReviewPage() {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [activeStep, setActiveStep] = React.useState(0);
+	const [radioValue, setValue] = React.useState('');
+	const [bechdelForm, setForm] = React.useState({
+		bechdel_1: '',
+		bechdel_2: '',
+		bechdel_3: '',
+		beyond: '',
+		comment: '',
+	});
 
 	const handleNext = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
+		console.log(bechdelForm);
+		setValue('');
 	};
 
 	const handleBack = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep - 1);
+		console.log(bechdelForm);
+		setValue('');
 	};
 
-	let reviewArr = {};
+	let reviewQuestion = '';
 
-	const [value, setValue] = React.useState(null);
-
-	const handleChange = (event) => {
-		setValue(event.target.value);
+	const handleClick = (event) => {
+		const { name, value } = event.target;
+		setValue(value);
+		setForm({ ...bechdelForm, [name]: value });
 	};
 
 	return (
@@ -81,20 +93,146 @@ export default function ReviewPage() {
 				>
 					<Container>
 						<Typography>{Movie.title}</Typography>
-						<CardMedia
-							component={'img'}
-							src={Movie.poster}
-							title={Movie.title}
-						/>
+						{activeStep !== 3 ? (
+							<CardMedia
+								component={'img'}
+								src={Movie.poster}
+								title={Movie.title}
+							/>
+						) : (
+							''
+						)}
+
 						<Typography>
 							{activeStep === 0
-								? 'RENDER FIRST QUESTION'
+								? (reviewQuestion = 'RENDER FIRST QUESTION')
 								: activeStep === 1
-								? 'RENDER SECOND QUESTION'
+								? (reviewQuestion = 'RENDER SECOND QUESTION')
 								: activeStep === 2
-								? 'RENDER THIRD QUESTION'
-								: 'RENDER BEYOND STUFF'}
+								? (reviewQuestion = 'RENDER THIRD QUESTION')
+								: (reviewQuestion = 'RENDER BEYOND STUFF')}
 						</Typography>
+
+						{activeStep === 0 ? (
+							<RadioGroup
+								aria-label={reviewQuestion}
+								checked={false}
+								name="bechdel_1"
+								row
+								value={radioValue}
+							>
+								<FormControlLabel
+									value="true"
+									name="bechdel_1"
+									control={<Radio onClick={handleClick} />}
+									label="Yes"
+								/>
+								<FormControlLabel
+									value="false"
+									name="bechdel_1"
+									control={<Radio onClick={handleClick} />}
+									label="No"
+								/>
+							</RadioGroup>
+						) : activeStep === 1 ? (
+							<RadioGroup
+								aria-label={reviewQuestion}
+								checked={false}
+								name="bechdel_2"
+								row
+								value={radioValue}
+							>
+								<FormControlLabel
+									value="true"
+									name="bechdel_2"
+									control={<Radio onClick={handleClick} />}
+									label="Yes"
+								/>
+								<FormControlLabel
+									value="false"
+									name="bechdel_2"
+									control={<Radio onClick={handleClick} />}
+									label="No"
+								/>
+							</RadioGroup>
+						) : activeStep === 2 ? (
+							<RadioGroup
+								aria-label={reviewQuestion}
+								checked={false}
+								name="bechdel_3"
+								row
+								value={radioValue}
+							>
+								<FormControlLabel
+									value="true"
+									name="bechdel_3"
+									control={<Radio onClick={handleClick} />}
+									label="Yes"
+								/>
+								<FormControlLabel
+									value="false"
+									name="bechdel_3"
+									control={<Radio onClick={handleClick} />}
+									label="No"
+								/>
+							</RadioGroup>
+						) : (
+							<>
+								<RadioGroup
+									aria-label={reviewQuestion}
+									checked={false}
+									name="bechdel_3"
+									row
+									value={radioValue}
+								>
+									<FormControlLabel
+										value="true"
+										name="bechdel_3"
+										control={<Radio onClick={handleClick} />}
+										label="Yes"
+									/>
+									<FormControlLabel
+										value="false"
+										name="bechdel_3"
+										control={<Radio onClick={handleClick} />}
+										label="No"
+									/>
+									<FormControlLabel
+										value="false"
+										name="bechdel_3"
+										control={<Radio onClick={handleClick} />}
+										label="No"
+									/>
+									<FormControlLabel
+										value="false"
+										name="bechdel_3"
+										control={<Radio onClick={handleClick} />}
+										label="No"
+									/>
+									<FormControlLabel
+										value="false"
+										name="bechdel_3"
+										control={<Radio onClick={handleClick} />}
+										label="No"
+									/>
+								</RadioGroup>
+								<TextField
+									id="outlined-basic"
+									label="Outlined"
+									variant="outlined"
+								/>
+
+								<Button
+									type="submit"
+									fullWidth
+									variant="contained"
+									color="primary"
+									className={classes.submit}
+								>
+									Submit
+								</Button>
+							</>
+						)}
 					</Container>
 
 					<MobileStepper
