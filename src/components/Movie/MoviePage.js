@@ -33,6 +33,7 @@ export default function MoviePage({ match: { params } }) {
 	const [statsCastData, setCastStatsData] = React.useState('');
 
 	React.useEffect(() => {
+		console.log(params);
 		getData(`/film/${params.title}`).then((data) => setMovieData(data));
 		getData(`/film/${params.title}/reviews`).then((data) =>
 			setReviewData(data),
@@ -73,23 +74,15 @@ export default function MoviePage({ match: { params } }) {
 				</Grid>
 				<Grid item xs={6}>
 					<Paper className={classes.paper}>
-						<GetMovieStatsCrew statsCrewData={statsCrewData} />
+						<GetMovieStatsCast statsCastData={statsCastData} />
 					</Paper>
 				</Grid>
 				<Grid item xs={6}>
 					<Paper className={classes.paper}>
-						<GetMovieStatsCast statsCastData={statsCastData} />
+						<GetMovieStatsCrew statsCrewData={statsCrewData} />
 					</Paper>
 				</Grid>
 			</Grid>
 		</div>
 	);
-
-	// film compnent
-
-	// film details
-
-	// film stats
-
-	// button to review
 }

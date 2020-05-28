@@ -2,6 +2,8 @@ import React from 'react';
 import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import calculateBechdel from '../../../utils/bechdelScore';
+import calculateBeyond from '../../../utils/beyondScore';
 
 const useStyles = makeStyles((theme) => ({
 	card: {
@@ -28,7 +30,6 @@ export default function GetMovie({ movieData, reviewData }) {
 	// ratings
 	// bechdel rate
 	// beyond rate
-	console.log('reviewData', reviewData);
 	const classes = useStyles();
 
 	const showPoster = (poster) => {
@@ -38,32 +39,25 @@ export default function GetMovie({ movieData, reviewData }) {
 		return poster;
 	};
 
-	const checkBechdel = (bechdelData) => {
-		const bechdelScore = '';
-		if (
-			bechdelData.bechdelData_1 === true &&
-			bechdelData.bechdelData_2 === true &&
-			bechdelData.bechdelData_1 === true
-		) {
-		}
-	};
-
 	return (
 		<>
-			<Typography variant="h3" component="h3">
+			{/* <Typography variant="h3" component="h3">
 				{movieData.title}
-			</Typography>
+			</Typography> */}
 			<CardMedia
 				className={classes.media}
 				component={'img'}
 				src={showPoster(movieData.poster)}
 				title={movieData.title}
 			/>
-			<Typography variant="h3" component="h3">
+			<Typography variant="h5" component="h3">
 				Metascore: {movieData.ratings}
 			</Typography>
-			<Typography variant="h3" component="h3">
-				Bechdel: {reviewData.bechdel_1}
+			<Typography variant="h5" component="h3">
+				Bechdel: {calculateBechdel(reviewData)}
+			</Typography>
+			<Typography variant="h5" component="h3">
+				Beyond: {calculateBeyond(reviewData)}
 			</Typography>
 		</>
 	);
