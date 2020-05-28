@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Bechdel from './Bechdel';
 
-it('About page renders correctly', () => {
+it('should render Bechdel page correctly', () => {
 	const content = renderer
 		.create(
 			<Router>
