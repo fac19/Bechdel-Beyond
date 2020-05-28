@@ -10,15 +10,13 @@ export default function calculateBechdel(reviewData) {
 		bechdel3Arr.push(data.bechdel_3);
 		return '';
 	});
-
 	function bechdelAverage(arr) {
 		let trues = 0;
 		let falses = 0;
 		for (let i = 0; i < arr.length; i++) {
 			if (arr[i] === true) {
 				trues++;
-			}
-			falses++;
+			} else falses++;
 		}
 		if (trues >= falses) {
 			bigBechdelArr.push(true);
