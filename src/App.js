@@ -82,9 +82,15 @@ function App() {
 
 					<Route
 						exact
-						path="/create-review"
-						render={() => <ReviewPage setLoggedIn={setLoggedIn} />}
-					/>
+						path="/create-review/:title"
+						render={(props) =>
+							loggedIn ? (
+								<ReviewPage {...props} filmData={filmData} />
+							) : (
+								<LogIn setLoggedIn={setLoggedIn} />
+							)
+						}
+					></Route>
 					{/* {accessToken ? (
             <Route exact path="/user-profile" component={UserPage}></Route>
           ) : (

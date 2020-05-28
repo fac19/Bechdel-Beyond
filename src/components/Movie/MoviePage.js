@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -61,7 +62,13 @@ export default function MoviePage({ match: { params } }) {
 							movieData={movieData}
 							statsCrewData={statsCrewData}
 						/>
-						<Button variant="outlined">Write Review</Button>
+						<Button
+							variant="outlined"
+							component={Link}
+							to={`/create-review/${params.title}`}
+						>
+							Write Review
+						</Button>
 					</Paper>
 				</Grid>
 				<Grid item xs={6}>

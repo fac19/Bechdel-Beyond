@@ -18,18 +18,16 @@ import MobileStepper from '@material-ui/core/MobileStepper';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
-const movie = {
-	title: 'sleepers',
-	poster:
-		'https://stockpictures.io/wp-content/uploads/2020/01/image-not-found-big-768x432.png',
-};
-
 const useStyles = makeStyles((theme) => ({
 	paper: {
 		marginTop: theme.spacing(8),
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
+	},
+
+	media: {
+		height: '250px',
 	},
 	avatar: {
 		margin: theme.spacing(1),
@@ -44,7 +42,37 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function ReviewPage() {
+export default function ReviewPage({ match: { params }, filmData }) {
+	console.log(filmData);
+	// filmData.map(film => {
+	//   film.title === params.title ? film.poster : 'https://stockpictures.io/wp-content/uploads/2020/01/image-not-found-big-768x432.png'
+	// })
+	// const moviePoster = filmData.map((film) => {
+	//   // console.log(film.title, params.title);
+	//   if (film.title == params.title) {
+	//     console.log('MATCH', film.poster);
+	//     return film.poster;
+	//   }
+	//   return;
+	// else {
+	//   return 'https://stockpictures.io/wp-content/uploads/2020/01/image-not-found-big-768x432.png';
+	// }
+	// });
+	const moviePoster = filmData.filter((film) => film.title == params.title);
+
+	const movie = {
+		title: params.title,
+		poster: moviePoster[0].poster,
+	};
+	console.log(movie);
+
+	const showPoster = (poster) => {
+		if (poster.status === 404) {
+			return 'https://stockpictures.io/wp-content/uploads/2020/01/image-not-found-big-768x432.png';
+		}
+		return poster;
+	};
+
 	const classes = useStyles();
 	const theme = useTheme();
 	const [activeStep, setActiveStep] = React.useState(0);
@@ -117,8 +145,9 @@ export default function ReviewPage() {
 						<Typography>{movie.title}</Typography>
 						{activeStep !== 3 ? (
 							<CardMedia
+								className={classes.media}
 								component={'img'}
-								src={movie.poster}
+								src={showPoster(movie.poster)}
 								title={movie.title}
 							/>
 						) : (
