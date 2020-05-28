@@ -5,13 +5,6 @@ A new way to discover, review & share movies that pass the Bechdel Test and go b
 
 ![](https://i.imgur.com/AoH51TY.png)
 
-## How to use
-
-1. Clone this repo
-2. Run `npm i`
-3. Start the server with `npm start`
-4. Run tests with `npm test`
-
 
 ## What is the Bechdel Test? :female_sign: 
 
@@ -19,10 +12,10 @@ A new way to discover, review & share movies that pass the Bechdel Test and go b
 
 This simple test, also known as the Bechdel-Wallace test, was created by the cartoonist Alison Bechdel and her friend Liz Wallace. It is a measure of the representation of women in fiction. 
 
-A movie passes when:
-1. The movie has to have at least two women in it,
-1. who talk to each other,
-1. about something other than a man.
+**A movie passes when:**
+1. The movie has to have **at least two women in it**
+1. who talk to **each other**
+1. about something **other than a man.**
 
 
 
@@ -35,6 +28,19 @@ The Bechdel Test is a useful but limited tool as it doesn't tell the whole story
 * What percentage of the dialogue do they speak?
 * Do they drive their choices?
 
+## Features 🔎
+
+Our project uses multiple API's but we wanted to build on their limitations: 
+- One of our core features is to give users the ability to share their own opinion on the gender representation in film.
+- Beyond is our way of elabourating on the existing Bechdel rating.
+- From these ideas we provide a web service in which users can find films that dont portray a frustrating gender imbalance, both on and off camera. 
+
+## How to use
+
+1. Clone this repo
+2. Run `npm i`
+3. Start the server with `npm start`
+4. Run tests with `npm test`
 
 ## Movie Page
 
@@ -46,6 +52,14 @@ The Bechdel Test is a useful but limited tool as it doesn't tell the whole story
 - Jest
 - CodeCov
 - Travis
+
+## APIs used  
+
+- [The Movie DB API](https://www.themoviedb.org/documentation/api) was used to get a list of films. Search was done by year and 1997 was selected since Titanic was always comming up in our search for APIs to use.
+- [The Movie Open Database](http://www.omdbapi.com/) was used to get film details for a given film title
+- [The Movie DB API](https://www.themoviedb.org/documentation/api) was used again to get cast and crew information for a given film id (provided by the first query)
+- [Bechdel Test Movie List](https://bechdeltest.com/api/v1/doc) was used to get Bechdel test reviews for a given film title
+
 
 
 ## Future developments
