@@ -8,6 +8,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 // import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import getData from '../../utils/getData';
 
 const useStyles = makeStyles((theme) => ({
 	card: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
+		textDecoration: 'none',
 	},
 	media: {
 		height: '250px',
@@ -69,6 +71,10 @@ export default function AllFilms({ filmData, setFilmData }) {
 									>
 										{film.plot}
 									</Typography>
+									<div className={classes.ratings}>
+										<Typography>Metascore: {film.ratings}</Typography>
+										<Typography></Typography>
+									</div>
 								</CardContent>
 							</CardActionArea>
 						</Card>
