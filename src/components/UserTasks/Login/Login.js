@@ -70,7 +70,7 @@ export default function LogIn({ setLoggedIn }) {
 					onSubmit={(e) => {
 						e.preventDefault();
 						setFetchState('Loading..');
-						fetch('http://localhost:3001/login', {
+						fetch('http://apibechdel.herokuapp.com/login', {
 							headers: { 'content-type': 'application/JSON' },
 							method: 'POST',
 							body: JSON.stringify({

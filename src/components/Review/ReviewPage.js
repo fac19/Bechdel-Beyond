@@ -100,7 +100,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		setFetchState('loading');
-		fetch(`http://localhost:3001/film/${movie.title}/reviews`, {
+		fetch(`http://apibechdel.herokuapp.com/film/${movie.title}/reviews`, {
 			headers: {
 				'content-type': 'application/JSON',
 				'Authorization': `Bearer ${window.localStorage.getItem(
@@ -126,7 +126,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 
 	return (
 		<>
-			{fetchState === '' ? (
+			{fetchState === 'success' ? (
 				<Redirect to={`/film/${params.title}`} />
 			) : (
 				<Container component="main" maxWidth="xs">
@@ -338,31 +338,3 @@ export default function ReviewPage({ match: { params }, filmData }) {
 		</>
 	);
 }
-
-/* 
-          <FormControl component="fieldset">
-            <FormLabel component="legend">Gender</FormLabel>
-            <RadioGroup
-              aria-label="gender"
-              name="gender1"
-              value={value}
-              onChange={handleChange}
-            >
-              <FormControlLabel
-                value="female"
-                control={<Radio />}
-                label="Female"
-              />
-              <FormControlLabel value="male" control={<Radio />} label="Male" />
-            </RadioGroup>
-          </FormControl>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Next
-          </Button>
-*/

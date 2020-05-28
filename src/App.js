@@ -14,9 +14,9 @@ import SignUp from './components/UserTasks/Signup/Signup';
 import MoviePage from './components/Movie/MoviePage';
 import LogIn from './components/UserTasks/Login/Login';
 
-// import AboutPage from './components/About/AboutPage';
 import ReviewPage from './components/Review/ReviewPage';
-// import UserPage from './components/UserTasks/UserPage/UserPage';
+import AboutPage from './components/About/AboutPage';
+import BechdelPage from './components/About/Bechdel';
 
 import getData from './utils/getData';
 
@@ -96,7 +96,12 @@ function App() {
           ) : (
             ''
           )} */}
-					{/*<Route exact path="/about" component={AboutPage}></Route> */}
+					<Route exact path="/about" component={AboutPage}></Route>
+					<Route exact path="/bechdel" component={BechdelPage}></Route>
+					<Route exact path="/bechdel" component={BechdelPage}></Route>
+					<Route exact path="/bechdel" component={BechdelPage}></Route>
+					<Route exact path="/bechdel" component={BechdelPage}></Route>
+					<Route exact path="/bechdel" component={BechdelPage}></Route>
 					<Route exact path="/film/:title" component={MoviePage}></Route>
 					<Route path="*" render={() => <Redirect to="/" />} />
 				</Switch>

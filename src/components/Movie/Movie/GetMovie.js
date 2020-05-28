@@ -6,30 +6,27 @@ import calculateBechdel from '../../../utils/bechdelScore';
 import calculateBeyond from '../../../utils/beyondScore';
 
 const useStyles = makeStyles((theme) => ({
-	card: {
-		width: '300px',
-		height: '400px',
-		margin: '.5rem',
+	root: {
 		display: 'flex',
-		flexDirection: 'column',
 		justifyContent: 'center',
+		margin: '3%',
 	},
 	media: {
-		height: '100px',
+		height: '400px',
+		objectFit: 'contain',
+		width: '50%',
+		marginRight: 0,
 	},
 	title: {
 		fontSize: 12,
 		fontWeight: 'bold',
 	},
+	ratings: {
+		textAlign: 'left',
+	},
 }));
 
 export default function GetMovie({ movieData, reviewData }) {
-	// film compnent
-	// title
-	// image
-	// ratings
-	// bechdel rate
-	// beyond rate
 	const classes = useStyles();
 
 	const showPoster = (poster) => {
@@ -40,25 +37,24 @@ export default function GetMovie({ movieData, reviewData }) {
 	};
 
 	return (
-		<>
-			{/* <Typography variant="h3" component="h3">
-				{movieData.title}
-			</Typography> */}
+		<div className={classes.root}>
 			<CardMedia
 				className={classes.media}
 				component={'img'}
 				src={showPoster(movieData.poster)}
 				title={movieData.title}
 			/>
-			<Typography variant="h5" component="h3">
-				Metascore: {movieData.ratings}
-			</Typography>
-			<Typography variant="h5" component="h3">
-				Bechdel: {calculateBechdel(reviewData)}
-			</Typography>
-			<Typography variant="h5" component="h3">
-				Beyond: {calculateBeyond(reviewData)}
-			</Typography>
-		</>
+			<div className={classes.ratings}>
+				<Typography variant="h5" component="h3">
+					Metascore: {movieData.ratings}
+				</Typography>
+				<Typography variant="h5" component="h3">
+					Bechdel: {calculateBechdel(reviewData)}
+				</Typography>
+				<Typography variant="h5" component="h3">
+					Beyond: {calculateBeyond(reviewData)}
+				</Typography>
+			</div>
+		</div>
 	);
 }
