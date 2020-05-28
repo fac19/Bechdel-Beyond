@@ -99,7 +99,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		setFetchState('loading');
-		fetch(`http://apibechdel.herokuapp.com/film/${movie.title}/reviews`, {
+		fetch(`https://apibechdel.herokuapp.com/film/${movie.title}/reviews`, {
 			headers: {
 				'content-type': 'application/JSON',
 				'Authorization': `Bearer ${window.localStorage.getItem(
