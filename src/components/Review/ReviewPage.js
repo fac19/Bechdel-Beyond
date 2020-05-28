@@ -54,7 +54,6 @@ export default function ReviewPage({ match: { params }, filmData }) {
 		title: params.title,
 		poster: moviePoster[0].poster,
 	};
-	console.log(movie);
 
 	const showPoster = (poster) => {
 		if (poster.status === 404) {

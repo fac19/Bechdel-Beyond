@@ -49,8 +49,6 @@ export default function MoviePage({ match: { params } }) {
 	if (!movieData || !reviewData || !statsCrewData || !statsCastData)
 		return <p>Loading</p>;
 
-	console.log('reviewData', reviewData);
-
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>
