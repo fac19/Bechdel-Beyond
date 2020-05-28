@@ -30,7 +30,7 @@ function App() {
 	const [filmData, setFilmData] = React.useState('');
 
 	const accessToken = window.localStorage.getItem('access token');
-	const [loggedIn, setLoggedIn] = React.useState(null);
+	const [loggedIn, setLoggedIn] = React.useState(accessToken ? true : null);
 	const [currentPage, setCurrentPage] = React.useState('HOME');
 
 	React.useEffect(() => {

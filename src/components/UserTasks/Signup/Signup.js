@@ -65,7 +65,6 @@ export default function Signup({ setLoggedIn }) {
 				</Typography>
 				<form
 					className={classes.form}
-					noValidate
 					onSubmit={(e) => {
 						setFetchState('Signing Up...');
 						e.preventDefault();
@@ -97,12 +96,14 @@ export default function Signup({ setLoggedIn }) {
 					<Grid container spacing={2}>
 						<Grid item xs={12}>
 							<TextField
+								required
 								autoComplete="username"
 								name="username"
 								variant="outlined"
 								required
 								fullWidth
 								id="Username"
+								Required
 								label="Username"
 								onChange={(e) => setUsername(e.target.value)}
 							/>
@@ -110,11 +111,14 @@ export default function Signup({ setLoggedIn }) {
 
 						<Grid item xs={12}>
 							<TextField
+								required
+								label="Required"
 								variant="outlined"
 								required
 								fullWidth
 								id="email"
 								label="Email Address"
+								type="email"
 								name="email"
 								autoComplete="email"
 								onChange={(e) => setUserEmail(e.target.value)}
