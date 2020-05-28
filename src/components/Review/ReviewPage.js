@@ -126,7 +126,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 
 	return (
 		<>
-			{fetchState === 'success' ? (
+			{fetchState === '' ? (
 				<Redirect to={`/film/${params.title}`} />
 			) : (
 				<Container component="main" maxWidth="xs">

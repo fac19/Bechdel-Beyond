@@ -126,16 +126,16 @@ export default function Navbar({
 					titleHref: '/',
 				},
 				{
+					title: 'About',
+					titleHref: '/about',
+				},
+				{
 					title: 'Sign Up',
 					titleHref: '/signup',
 				},
 				{
 					title: 'Login',
 					titleHref: '/login',
-				},
-				{
-					title: 'About',
-					titleHref: '/about',
 				},
 			]);
 		}
