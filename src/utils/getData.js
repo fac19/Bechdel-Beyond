@@ -6,7 +6,7 @@ function checkResponse(res) {
 }
 
 export default function getData(endpoint) {
-	return fetch(`http://apibechdel.herokuapp.com${endpoint}`)
+	return fetch(`https://apibechdel.herokuapp.com${endpoint}`)
 		.then(checkResponse)
 		.catch((err) => {
 			throw new Error(`Get data failed ${err}`);
