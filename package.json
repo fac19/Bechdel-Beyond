@@ -61,8 +61,8 @@
 		"react-axe": "^3.4.1"
   },
   "jest": {
-    "testPathIgnorePatterns" : [
-      "./src/serviceWorker.js" 
+    "coveragePathIgnorePatterns" : [
+      "<rootDir>/src/serviceWorker.js" 
     ]
   }
 }
