@@ -4,16 +4,11 @@ import { Redirect } from 'react-router-dom';
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-// import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-// import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import FormControl from '@material-ui/core/FormControl';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-// import Link from '@material-ui/core/Link';
-// import FormLabel from '@material-ui/core/FormLabel';
 import Container from '@material-ui/core/Container';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';

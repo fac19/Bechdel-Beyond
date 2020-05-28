@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Get movie section renders correctly on movie page 1`] = `<getMovieTop />`;

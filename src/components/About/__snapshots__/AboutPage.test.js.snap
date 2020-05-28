@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About page renders correctly 1`] = `
+Array [
+  <h2
+    className="MuiTypography-root MuiTypography-h2"
+  >
+    Bechdel & Beyond
+  </h2>,
+  <h5
+    className="MuiTypography-root MuiTypography-h5"
+  >
+    A new way toclassName=
+     discover, review & share movies that pass the Bechdel Test and go beyond...
+  </h5>,
+  <button
+    className="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+    disabled={false}
+    onBlur={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <span
+      className="MuiButton-label"
+    >
+      <a
+        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        href="/bechdel"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+      >
+        How it works
+      </a>
+    </span>
+  </button>,
+  <button
+    className="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+    disabled={false}
+    onBlur={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <span
+      className="MuiButton-label"
+    >
+      <a
+        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        href="/"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+      >
+        Skip to the movies
+      </a>
+    </span>
+  </button>,
+]
+`;
