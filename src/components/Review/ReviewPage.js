@@ -60,13 +60,11 @@ export default function ReviewPage() {
 	const handleNext = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
 		setValue('');
-		console.log(bechdelForm);
 	};
 
 	const handleBack = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep - 1);
 		setValue('');
-		console.log(bechdelForm);
 	};
 
 	let reviewQuestion = '';
@@ -92,7 +90,6 @@ export default function ReviewPage() {
 		})
 			.then((response) => {
 				if (response.ok) {
-					response.json().then((res) => console.log(res));
 					return response.json();
 				} else {
 					throw new Error('Could not post review');
@@ -130,14 +127,21 @@ export default function ReviewPage() {
 
 						<Typography>
 							{activeStep === 0
-								? (reviewQuestion = 'RENDER FIRST QUESTION')
+								? (reviewQuestion = 'Are there at least 2 women ?')
 								: activeStep === 1
-								? (reviewQuestion = 'RENDER SECOND QUESTION')
+								? (reviewQuestion = 'Do they talk to each other ?')
 								: activeStep === 2
-								? (reviewQuestion = 'RENDER THIRD QUESTION')
-								: (reviewQuestion = 'RENDER BEYOND STUFF')}
+								? (reviewQuestion =
+										'Do they talk about something other than men ?')
+								: (reviewQuestion =
+										'How satisfied were you with the gender representation?')}
 						</Typography>
-
+						<Typography>Things to think about:</Typography>
+						<Typography>How many of the cast are women?</Typography>
+						<Typography>
+							What percentage of the dialogue do they speak?
+						</Typography>
+						<Typography>Do they drive their own choices?</Typography>
 						{activeStep === 0 ? (
 							<RadioGroup
 								aria-label={reviewQuestion}
@@ -214,33 +218,34 @@ export default function ReviewPage() {
 										value="0"
 										name="beyond"
 										control={<Radio onClick={handleEvent} />}
-										label="👎"
+										label="🤬"
 									/>
 									<FormControlLabel
 										value="1"
 										name="beyond"
 										control={<Radio onClick={handleEvent} />}
-										label="👎"
+										label="😞"
 									/>
 									<FormControlLabel
 										value="2"
 										name="beyond"
 										control={<Radio onClick={handleEvent} />}
-										label="👉"
+										label="😕"
 									/>
 									<FormControlLabel
 										value="3"
 										name="beyond"
 										control={<Radio onClick={handleEvent} />}
-										label="👍"
+										label="🙂"
 									/>
 									<FormControlLabel
 										value="4"
 										name="beyond"
 										control={<Radio onClick={handleEvent} />}
-										label="👍"
+										label="💖"
 									/>
 								</RadioGroup>
+								<Typography>Let us know what you thought!</Typography>
 								<TextField
 									id="outlined-basic"
 									label="Outlined"
