@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cast stats section renders correctly on movie page 1`] = `
+<h1>
+  Locading
+</h1>
+`;
+
+exports[`Cre stats section renders correctly on movie page 1`] = `
+<h1>
+  Loading
+</h1>
+`;

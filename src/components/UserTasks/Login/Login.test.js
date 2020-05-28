@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
+import renderer from 'react-test-renderer';
+
 import LogIn from './Login';
 import App from '../../../App';
 
@@ -51,15 +53,13 @@ test('Can fill in input boxes and login', () => {
 	fireEvent.click(LoginBtn);
 });
 
-// test('Test to see the correct menue Items when logged in', () => {
-// 	const { emailInput, passwordInput } = setup();
-// 	fireEvent.change(emailInput, { target: { value: 'guy@someguy.com' } });
-// 	fireEvent.change(passwordInput, { target: { value: '123' } });
-// 	expect(emailInput.value).toBe('guy@someguy.com');
-// 	const LoginBtn = screen.getByText('Sign In');
-// 	fireEvent.click(LoginBtn);
-// 	const token = window.localStorage.getItem('access token') || null;
-// 	console.log(token);
-// 	const { homePage } = renderHome();
-// 	screen.getByText(/Log out/i);
-// });
+it('Login page renders correctly', () => {
+	const login = renderer
+		.create(
+			<Router>
+				<LogIn />
+			</Router>,
+		)
+		.toJSON();
+	expect(login).toMatchSnapshot();
+});

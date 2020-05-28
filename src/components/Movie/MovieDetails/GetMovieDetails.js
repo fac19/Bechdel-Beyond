@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
 export default function GetMovieDetails({ movieData, statsCrewData }) {
 	const classes = useStyles();
 
+	if (!movieData) return <h1>Locading</h1>;
 	return (
 		<>
 			<Typography className={classes.title} variant="h4" component="h3">

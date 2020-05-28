@@ -5,5 +5,5 @@ export default function calculateBeyond(reviewData) {
 		return usersRatings.push(data.beyond);
 	});
 
-	return usersRatings.reduce((a, r) => a + r) / reviewData.length;
+	return Math.floor(usersRatings.reduce((a, r) => a + r) / reviewData.length);
 }
