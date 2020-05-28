@@ -12,18 +12,21 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
 	card: {
 		width: '300px',
-		height: '400px',
+		height: '500px',
 		margin: '.5rem',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
 	},
 	media: {
-		height: '100px',
+		height: '250px',
 	},
 	title: {
-		fontSize: 12,
+		fontSize: 14,
 		fontWeight: 'bold',
+	},
+	subtitle: {
+		fontSize: 12,
 	},
 }));
 
@@ -59,7 +62,11 @@ export default function AllFilms({ filmData, setFilmData }) {
 									<Typography className={classes.title}>
 										{'Synopsis: '}
 									</Typography>
-									<Typography variant="body1" component="p">
+									<Typography
+										variant="body1"
+										className={classes.subtitle}
+										component="p"
+									>
 										{film.plot}
 									</Typography>
 								</CardContent>

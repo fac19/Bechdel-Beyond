@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function DisplayMovie({ match: { params } }) {
+export default function MoviePage({ match: { params } }) {
 	const classes = useStyles();
 	const [movieData, setMovieData] = React.useState('');
 	const [reviewData, setReviewData] = React.useState('');
