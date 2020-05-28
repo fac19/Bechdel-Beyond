@@ -16,7 +16,9 @@ export default function calculateBechdel(reviewData) {
 		for (let i = 0; i < arr.length; i++) {
 			if (arr[i] === true) {
 				trues++;
-			} else falses++;
+				continue;
+			}
+			falses++;
 		}
 		if (trues >= falses) {
 			bigBechdelArr.push(true);
