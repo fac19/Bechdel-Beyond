@@ -21,8 +21,8 @@ export default function AboutPage() {
 				Bechdel & Beyond
 			</Typography>
 			<Typography variant="h5" component="h5">
-				A new way to discover, review & share movies that pass the Bechdel Test
-				and go beyond...
+				A new way toclassName={classes.title} discover, review & share movies
+				that pass the Bechdel Test and go beyond...
 			</Typography>
 			<Button variant="outlined">
 				<Link component={RouterLink} to="/bechdel">

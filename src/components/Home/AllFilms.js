@@ -8,7 +8,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 // import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import getData from '../../utils/getData';
+// import getData from '../../utils/getData';
 
 const useStyles = makeStyles((theme) => ({
 	card: {
