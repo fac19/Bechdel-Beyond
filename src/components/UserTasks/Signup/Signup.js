@@ -65,7 +65,6 @@ export default function Signup({ setLoggedIn }) {
 				</Typography>
 				<form
 					className={classes.form}
-					noValidate
 					onSubmit={(e) => {
 						setFetchState('Signing Up...');
 						e.preventDefault();
@@ -89,17 +88,16 @@ export default function Signup({ setLoggedIn }) {
 								(json) =>
 									window.localStorage.setItem('access token', json.token),
 								setLoggedIn(true),
-							)
-							.catch((error) => setFetchState('error'));
+							);
 					}}
 				>
 					<Grid container spacing={2}>
 						<Grid item xs={12}>
 							<TextField
+								required
 								autoComplete="username"
 								name="username"
 								variant="outlined"
-								required
 								fullWidth
 								id="Username"
 								label="Username"
@@ -109,11 +107,12 @@ export default function Signup({ setLoggedIn }) {
 
 						<Grid item xs={12}>
 							<TextField
-								variant="outlined"
 								required
+								variant="outlined"
 								fullWidth
 								id="email"
 								label="Email Address"
+								type="email"
 								name="email"
 								autoComplete="email"
 								onChange={(e) => setUserEmail(e.target.value)}

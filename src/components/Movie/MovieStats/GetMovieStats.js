@@ -3,7 +3,6 @@ import Typography from '@material-ui/core/Typography';
 
 export function GetMovieStatsCast({ statsCastData }) {
 	if (!statsCastData) return <h1>Locading</h1>;
-	console.log(statsCastData);
 	return (
 		<>
 			<Typography variant="h5" component="h3">

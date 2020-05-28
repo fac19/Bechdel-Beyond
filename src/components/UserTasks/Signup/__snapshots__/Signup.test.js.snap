@@ -28,7 +28,6 @@ exports[`Signup page renders correctly 1`] = `
     </h1>
     <form
       className="makeStyles-form-3"
-      noValidate={true}
       onSubmit={[Function]}
     >
       <div
@@ -128,7 +127,7 @@ exports[`Signup page renders correctly 1`] = `
                 onChange={[Function]}
                 onFocus={[Function]}
                 required={true}
-                type="text"
+                type="email"
               />
               <fieldset
                 aria-hidden={true}

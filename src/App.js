@@ -13,10 +13,10 @@ import AllFilms from './components/Home/AllFilms';
 import SignUp from './components/UserTasks/Signup/Signup';
 import MoviePage from './components/Movie/MoviePage';
 import LogIn from './components/UserTasks/Login/Login';
+
+import ReviewPage from './components/Review/ReviewPage';
 import AboutPage from './components/About/AboutPage';
 import BechdelPage from './components/About/Bechdel';
-// import ReviewPage from './components/Review/ReviewPage';
-// import UserPage from './components/UserTasks/UserPage/UserPage';
 
 import getData from './utils/getData';
 
@@ -30,7 +30,7 @@ function App() {
 	const [filmData, setFilmData] = React.useState('');
 
 	const accessToken = window.localStorage.getItem('access token');
-	const [loggedIn, setLoggedIn] = React.useState(null);
+	const [loggedIn, setLoggedIn] = React.useState(accessToken ? true : null);
 	const [currentPage, setCurrentPage] = React.useState('HOME');
 
 	React.useEffect(() => {
@@ -80,7 +80,17 @@ function App() {
 						}
 					/>
 
-					{/* <Route exact path="/create-review" component={ReviewPage}></Route> */}
+					<Route
+						exact
+						path="/create-review/:title"
+						render={(props) =>
+							loggedIn ? (
+								<ReviewPage {...props} filmData={filmData} />
+							) : (
+								<LogIn setLoggedIn={setLoggedIn} />
+							)
+						}
+					></Route>
 					{/* {accessToken ? (
             <Route exact path="/user-profile" component={UserPage}></Route>
           ) : (
@@ -95,5 +105,4 @@ function App() {
 		</Router>
 	);
 }
-
 export default App;
