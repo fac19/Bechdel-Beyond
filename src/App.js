@@ -98,10 +98,6 @@ function App() {
           )} */}
 					<Route exact path="/about" component={AboutPage}></Route>
 					<Route exact path="/bechdel" component={BechdelPage}></Route>
-					<Route exact path="/bechdel" component={BechdelPage}></Route>
-					<Route exact path="/bechdel" component={BechdelPage}></Route>
-					<Route exact path="/bechdel" component={BechdelPage}></Route>
-					<Route exact path="/bechdel" component={BechdelPage}></Route>
 					<Route exact path="/film/:title" component={MoviePage}></Route>
 					<Route path="*" render={() => <Redirect to="/" />} />
 				</Switch>
