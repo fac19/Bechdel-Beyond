@@ -8,24 +8,25 @@ export default function calculateBechdel(reviewData) {
 		bechdel1Arr.push(data.bechdel_1);
 		bechdel2Arr.push(data.bechdel_2);
 		bechdel3Arr.push(data.bechdel_3);
+		return '';
 	});
 
 	function bechdelAverage(arr) {
 		let trues = 0;
 		let falses = 0;
 		for (let i = 0; i < arr.length; i++) {
-			if (arr[1] === true) {
-				return trues++;
+			if (arr[i] === true) {
+				trues++;
 			}
-			return falses++;
+			falses++;
 		}
-
 		if (trues >= falses) {
 			bigBechdelArr.push(true);
 		} else {
 			bigBechdelArr.push(false);
 		}
 	}
+
 	bechdelAverage(bechdel1Arr);
 	bechdelAverage(bechdel2Arr);
 	bechdelAverage(bechdel3Arr);
