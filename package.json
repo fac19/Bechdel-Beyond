@@ -62,8 +62,7 @@
 	},
 	"jest": {
 		"coveragePathIgnorePatterns": [
-			"<rootDir>/src/serviceWorker.js",
-			"<rootDir>/src/**/*.test.js"
+			"<rootDir>/src/serviceWorker.js"
 		]
 	}
 }
