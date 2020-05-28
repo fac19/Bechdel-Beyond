@@ -69,7 +69,7 @@ export default function Signup({ setLoggedIn }) {
 					onSubmit={(e) => {
 						setFetchState('Signing Up...');
 						e.preventDefault();
-						fetch('https://localhost:3001/signup', {
+						fetch('https://apibechdel.herokuapp.com/signup', {
 							headers: { 'content-type': 'application/JSON' },
 							method: 'POST',
 							body: JSON.stringify({

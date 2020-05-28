@@ -18,8 +18,8 @@ import MobileStepper from '@material-ui/core/MobileStepper';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
-const Movie = {
-	title: 'Jo Jo rabbit',
+const movie = {
+	title: 'sleepers',
 	poster:
 		'https://stockpictures.io/wp-content/uploads/2020/01/image-not-found-big-768x432.png',
 };
@@ -53,39 +53,46 @@ export default function ReviewPage() {
 		bechdel_1: '',
 		bechdel_2: '',
 		bechdel_3: '',
-		beyond: '',
+		beyond: 0,
 		comment: '',
 	});
 
 	const handleNext = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
-		console.log(bechdelForm);
 		setValue('');
+		console.log(bechdelForm);
 	};
 
 	const handleBack = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep - 1);
-		console.log(bechdelForm);
 		setValue('');
+		console.log(bechdelForm);
 	};
 
 	let reviewQuestion = '';
 
-	const handleClick = (event) => {
-		const { name, value } = event.target;
+	const handleEvent = (event) => {
+		let { name, value } = event.target;
 		setValue(value);
+		value = name === 'beyond' ? +value : value;
 		setForm({ ...bechdelForm, [name]: value });
 	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		fetch('https://localhost:3001/films:title/reviews', {
-			headers: { 'content-type': 'application/JSON' },
+		fetch(`https://apibechdel.herokuapp.com/film/${movie.title}/reviews`, {
+			headers: {
+				'content-type': 'application/JSON',
+				'Authorization': `Bearer ${window.localStorage.getItem(
+					'access token',
+				)}`,
+			},
 			method: 'POST',
 			body: JSON.stringify(bechdelForm),
 		})
 			.then((response) => {
 				if (response.ok) {
+					response.json().then((res) => console.log(res));
 					return response.json();
 				} else {
 					throw new Error('Could not post review');
@@ -93,7 +100,6 @@ export default function ReviewPage() {
 			})
 			.catch((err) => console.log(err));
 	};
-	//window.localStorage.setItem('access token', json.token);
 
 	return (
 		<>
@@ -107,15 +113,16 @@ export default function ReviewPage() {
 					noValidate
 					onSubmit={(e) => {
 						e.preventDefault();
+						handleSubmit(e);
 					}}
 				>
 					<Container>
-						<Typography>{Movie.title}</Typography>
+						<Typography>{movie.title}</Typography>
 						{activeStep !== 3 ? (
 							<CardMedia
 								component={'img'}
-								src={Movie.poster}
-								title={Movie.title}
+								src={movie.poster}
+								title={movie.title}
 							/>
 						) : (
 							''
@@ -142,13 +149,13 @@ export default function ReviewPage() {
 								<FormControlLabel
 									value="true"
 									name="bechdel_1"
-									control={<Radio onClick={handleClick} />}
+									control={<Radio onClick={handleEvent} />}
 									label="Yes"
 								/>
 								<FormControlLabel
 									value="false"
 									name="bechdel_1"
-									control={<Radio onClick={handleClick} />}
+									control={<Radio onClick={handleEvent} />}
 									label="No"
 								/>
 							</RadioGroup>
@@ -163,13 +170,13 @@ export default function ReviewPage() {
 								<FormControlLabel
 									value="true"
 									name="bechdel_2"
-									control={<Radio onClick={handleClick} />}
+									control={<Radio onClick={handleEvent} />}
 									label="Yes"
 								/>
 								<FormControlLabel
 									value="false"
 									name="bechdel_2"
-									control={<Radio onClick={handleClick} />}
+									control={<Radio onClick={handleEvent} />}
 									label="No"
 								/>
 							</RadioGroup>
@@ -184,13 +191,13 @@ export default function ReviewPage() {
 								<FormControlLabel
 									value="true"
 									name="bechdel_3"
-									control={<Radio onClick={handleClick} />}
+									control={<Radio onClick={handleEvent} />}
 									label="Yes"
 								/>
 								<FormControlLabel
 									value="false"
 									name="bechdel_3"
-									control={<Radio onClick={handleClick} />}
+									control={<Radio onClick={handleEvent} />}
 									label="No"
 								/>
 							</RadioGroup>
@@ -199,38 +206,38 @@ export default function ReviewPage() {
 								<RadioGroup
 									aria-label={reviewQuestion}
 									checked={false}
-									name="Beyond"
+									name="beyond"
 									row
 									value={radioValue}
 								>
 									<FormControlLabel
 										value="0"
 										name="beyond"
-										control={<Radio onClick={handleClick} />}
+										control={<Radio onClick={handleEvent} />}
 										label="👎"
 									/>
 									<FormControlLabel
 										value="1"
 										name="beyond"
-										control={<Radio onClick={handleClick} />}
+										control={<Radio onClick={handleEvent} />}
 										label="👎"
 									/>
 									<FormControlLabel
 										value="2"
 										name="beyond"
-										control={<Radio onClick={handleClick} />}
+										control={<Radio onClick={handleEvent} />}
 										label="👉"
 									/>
 									<FormControlLabel
 										value="3"
 										name="beyond"
-										control={<Radio onClick={handleClick} />}
+										control={<Radio onClick={handleEvent} />}
 										label="👍"
 									/>
 									<FormControlLabel
 										value="4"
 										name="beyond"
-										control={<Radio onClick={handleClick} />}
+										control={<Radio onClick={handleEvent} />}
 										label="👍"
 									/>
 								</RadioGroup>
@@ -238,6 +245,8 @@ export default function ReviewPage() {
 									id="outlined-basic"
 									label="Outlined"
 									variant="outlined"
+									name="comment"
+									onChange={handleEvent}
 								/>
 
 								<Button
