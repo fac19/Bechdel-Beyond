@@ -36,19 +36,19 @@ The Bechdel Test is a useful but limited tool as it doesn't tell the whole story
 * Do they drive their choices?
 
 
-### Movie Page
+## Movie Page
 
 ![](https://i.imgur.com/550mCUF.png)
 
 
-### Tech Used
+## Tech Used
 - React
 - Jest
 - CodeCov
 - Travis
 
 
-### Future developments
+## Future developments
 
 With more time we would: 
 
@@ -58,7 +58,7 @@ With more time we would:
 - Use infographics to display the gender parity data
 
 
-### Credits
+## Credits
 
 ![](https://media.giphy.com/media/xUNemGKfpKwssvKdIA/giphy.gif)
 
