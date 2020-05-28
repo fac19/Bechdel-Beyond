@@ -1,18 +1,44 @@
 import React from 'react';
-
-export function GetMovieStatsCrew({ statsCrewData }) {
-	// film stats
-	// cast parity
-	// crew parity
-	if (!statsCrewData) return <h1>Locading</h1>;
-	console.log(statsCrewData);
-	return <h2>{statsCrewData.gender_parity.male}</h2>;
-}
+import Typography from '@material-ui/core/Typography';
 
 export function GetMovieStatsCast({ statsCastData }) {
-	// film stats
-	// cast parity
-	// crew parity
+	if (!statsCastData) return <h1>Locading</h1>;
+	console.log(statsCastData);
+	return (
+		<>
+			<Typography variant="h5" component="h3">
+				Cast gender balance:
+			</Typography>
+			<Typography variant="h5" component="h3">
+				Female: {statsCastData.gender_parity_cast.female}
+			</Typography>
+			<Typography variant="h5" component="h3">
+				Male: {statsCastData.gender_parity_cast.male}
+			</Typography>
+			<Typography variant="h5" component="h3">
+				Not declared: {statsCastData.gender_parity_cast.notlisted}
+			</Typography>
+		</>
+	);
+}
 
-	return <h1>{statsCastData.gender_parity_cast.female}</h1>;
+export function GetMovieStatsCrew({ statsCrewData }) {
+	if (!statsCrewData) return <h1>Loading</h1>;
+
+	return (
+		<>
+			<Typography variant="h5" component="h3">
+				Crew gender balance:
+			</Typography>
+			<Typography variant="h5" component="h3">
+				Female: {statsCrewData.gender_parity.female}
+			</Typography>
+			<Typography variant="h5" component="h3">
+				Male: {statsCrewData.gender_parity.male}
+			</Typography>
+			<Typography variant="h5" component="h3">
+				Not declared: {statsCrewData.gender_parity.notlisted}
+			</Typography>
+		</>
+	);
 }

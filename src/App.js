@@ -87,7 +87,7 @@ function App() {
             ''
           )} */}
 					{/*<Route exact path="/about" component={AboutPage}></Route> */}
-					<Route exact path="/movie/:title" component={MoviePage}></Route>
+					<Route exact path="/film/:title" component={MoviePage}></Route>
 					<Route path="*" render={() => <Redirect to="/" />} />
 				</Switch>
 			</div>

@@ -47,7 +47,7 @@ export default function AllFilms({ filmData, setFilmData }) {
 			<Grid container justify="center">
 				{filmData.map((film) => (
 					<Grid item key={film.movapi_id}>
-						<Card component={Link} to={`/movie/${film.title}`}>
+						<Card component={Link} to={`/film/${film.title}`}>
 							<CardActionArea className={classes.card}>
 								<CardMedia
 									className={classes.media}
