@@ -98,10 +98,8 @@ export default function Signup({ setLoggedIn }) {
 								autoComplete="username"
 								name="username"
 								variant="outlined"
-								required
 								fullWidth
 								id="Username"
-								Required
 								label="Username"
 								onChange={(e) => setUsername(e.target.value)}
 							/>
@@ -110,9 +108,7 @@ export default function Signup({ setLoggedIn }) {
 						<Grid item xs={12}>
 							<TextField
 								required
-								label="Required"
 								variant="outlined"
-								required
 								fullWidth
 								id="email"
 								label="Email Address"

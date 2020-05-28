@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ReviewPage({ match: { params }, filmData }) {
 	const [fetchState, setFetchState] = React.useState('');
 
-	const moviePoster = filmData.filter((film) => film.title == params.title);
+	const moviePoster = filmData.filter((film) => film.title === params.title);
 
 	const movie = {
 		title: params.title,

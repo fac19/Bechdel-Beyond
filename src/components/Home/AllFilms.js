@@ -77,7 +77,7 @@ export default function AllFilms({ filmData, setFilmData }) {
 
 			setCurrentMovies(filteredFilms);
 		}
-	}, [movieTitle]);
+	}, [movieTitle, filmData]);
 
 	if (!filmData) return null;
 
