@@ -69,7 +69,7 @@ export default function Signup({ setLoggedIn }) {
 					onSubmit={(e) => {
 						setFetchState('Signing Up...');
 						e.preventDefault();
-						fetch('https://localhost:3001/signup', {
+						fetch('http://apibechdel.herokuapp.com/signup', {
 							headers: { 'content-type': 'application/JSON' },
 							method: 'POST',
 							body: JSON.stringify({
@@ -85,10 +85,11 @@ export default function Signup({ setLoggedIn }) {
 									throw new Error('Fetch failed');
 								}
 							})
-							.then((json) =>
-								window.localStorage.setItem('access token', json.token),
+							.then(
+								(json) =>
+									window.localStorage.setItem('access token', json.token),
+								setLoggedIn(true),
 							)
-							.then(setLoggedIn(true))
 							.catch((error) => setFetchState('error'));
 					}}
 				>
