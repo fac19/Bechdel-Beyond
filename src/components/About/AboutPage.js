@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AboutPage() {
-	const classes = useStyles();
 
 	return (
 		<>
