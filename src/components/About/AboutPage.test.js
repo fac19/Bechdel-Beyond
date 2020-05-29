@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import AboutPage from './AboutPage';
 
-it('About page renders correctly', () => {
+it('should render About page correctly', () => {
 	const about = renderer
 		.create(
 			<Router>

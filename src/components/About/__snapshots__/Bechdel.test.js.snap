@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`About page renders correctly 1`] = `
+exports[`should render Bechdel page correctly 1`] = `
 Array [
   <h3
     className="MuiTypography-root MuiTypography-h3"

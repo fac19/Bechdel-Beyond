@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`About page renders correctly 1`] = `
+exports[`should render About page correctly 1`] = `
 Array [
   <h2
     className="MuiTypography-root MuiTypography-h2"
