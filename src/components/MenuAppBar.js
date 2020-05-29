@@ -24,10 +24,13 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 	},
 	title: {
-		color: '#000',
+		color: '#fff',
+		textDecoration: 'none',
+		fontSize: '1.4rem',
 	},
+
 	appBar: {
-		backgroundColor: '#dedede',
+		backgroundColor: '#654EA3',
 		transition: theme.transitions.create(['margin', 'width'], {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen,
@@ -160,9 +163,17 @@ export default function Navbar({
 					>
 						<MenuIcon />
 					</IconButton>
-					<Typography variant="h6" noWrap color="primary">
-						Bechdel & Beyond
-					</Typography>
+
+					<Link className={classes.title} to="/" variant="body2">
+						<Typography
+							className={classes.title}
+							variant="h6"
+							noWrap
+							color="primary"
+						>
+							Bechdel & Beyond
+						</Typography>
+					</Link>
 				</Toolbar>
 			</AppBar>
 			<Drawer
