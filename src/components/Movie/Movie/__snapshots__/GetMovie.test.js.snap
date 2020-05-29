@@ -1,3 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Get movie section renders correctly on movie page 1`] = `<getMovieTop />`;
+exports[`should render  getMovie section correctly if data provided 1`] = `
+<getMovieTop
+  movieData={
+    Object {
+      "awards": "Won 11 oscars and another 114 wins",
+      "country": "USA",
+      "filmLanguage": "English",
+      "genre": "['drama', 'romance']",
+      "movapi_id": "34",
+      "plot": "A seventeen-year-old aristocrat falls in love with...",
+      "poster": "https://m.media-amazon.com/images...",
+      "rated": "PG-13",
+      "ratings": "86",
+      "runtime": "194min",
+      "title": "Titanic",
+      "year": "1997",
+    }
+  }
+  reviewData={
+    Array [
+      Object {
+        "bechdel_1": "true",
+        "bechdel_2": "false",
+        "bechdel_3": "false",
+        "beyond": 3,
+        "comment": "I loved it!",
+        "film_id": 1,
+        "user_id": 1,
+      },
+      Object {
+        "bechdel_1": "true",
+        "bechdel_2": "false",
+        "bechdel_3": "false",
+        "beyond": 3,
+        "comment": "I loved it!",
+        "film_id": 1,
+        "user_id": 2,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`should render <loading> in movie section if no data 1`] = `<getMovieTop />`;
