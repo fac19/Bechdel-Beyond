@@ -17,22 +17,29 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
 	card: {
 		width: '300px',
-		height: '500px',
+		height: '525px',
 		margin: '.5rem',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
-		textDecoration: 'none',
 	},
 	media: {
 		height: '250px',
 	},
+	cardlink: {
+		textDecoration: 'none',
+	},
 	title: {
-		fontSize: 14,
+		fontSize: '20px',
 		fontWeight: 'bold',
+		marginBottom: '5px',
 	},
 	subtitle: {
-		fontSize: 12,
+		fontSize: '14px',
+		marginBottom: '7px',
+	},
+	ratings: {
+		fontWeight: 'bold',
 	},
 	root: {
 		padding: '2px 4px',
@@ -118,7 +125,11 @@ export default function AllFilms({ filmData, setFilmData }) {
 					<>
 						{currentMovies.map((film) => (
 							<Grid item key={film.movapi_id}>
-								<Card component={Link} to={`/film/${film.title}`}>
+								<Card
+									className={classes.cardlink}
+									component={Link}
+									to={`/film/${film.title}`}
+								>
 									<CardActionArea className={classes.card}>
 										<CardMedia
 											className={classes.media}
@@ -127,15 +138,17 @@ export default function AllFilms({ filmData, setFilmData }) {
 											title={film.title}
 										/>
 										<CardContent gutterbottom="true">
-											<Typography variant="h5" component="h3">
+											<Typography
+												className={classes.title}
+												variant="h5"
+												component="h3"
+											>
 												{film.title}
 											</Typography>
-											<Typography className={classes.title}>
-												{'Synopsis: '}
-											</Typography>
+											<Typography>{'Synopsis: '}</Typography>
 											<Typography
-												variant="body1"
 												className={classes.subtitle}
+												variant="body1"
 												component="p"
 											>
 												{film.plot}
