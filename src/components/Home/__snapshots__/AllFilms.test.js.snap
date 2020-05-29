@@ -1,3 +1,212 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render AllFilms page correctly 1`] = `null`;
+exports[`should render <loading> in AllFilms page if no data 1`] = `null`;
+
+exports[`should render AllFilms page correctly if data provided 1`] = `
+Array [
+  <div
+    className="makeStyles-searchWrapper-8"
+  >
+    <form
+      className="MuiPaper-root makeStyles-root-5 MuiPaper-elevation1 MuiPaper-rounded"
+      onSubmit={[Function]}
+    >
+      <div
+        className="MuiInputBase-root makeStyles-input-6"
+        onClick={[Function]}
+      >
+        <input
+          aria-label="search movies"
+          className="MuiInputBase-input"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Search Movies"
+          type="text"
+        />
+      </div>
+      <button
+        aria-label="search"
+        className="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-7"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="submit"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+    </form>
+  </div>,
+  <div
+    className="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-item"
+    >
+      <a
+        className="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
+        href="/film/Titanic"
+        onClick={[Function]}
+      >
+        <button
+          className="MuiButtonBase-root MuiCardActionArea-root makeStyles-card-1"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <img
+            className="MuiCardMedia-root makeStyles-media-2 MuiCardMedia-media MuiCardMedia-img"
+            src="https://m.media-amazon.com/images..."
+            title="Titanic"
+          />
+          <div
+            className="MuiCardContent-root"
+            gutterbottom="true"
+          >
+            <h3
+              className="MuiTypography-root MuiTypography-h5"
+            >
+              Titanic
+            </h3>
+            <p
+              className="MuiTypography-root makeStyles-title-3 MuiTypography-body1"
+            >
+              Synopsis: 
+            </p>
+            <p
+              className="MuiTypography-root makeStyles-subtitle-4 MuiTypography-body1"
+            >
+              A seventeen-year-old aristocrat falls in love with...
+            </p>
+            <div>
+              <p
+                className="MuiTypography-root MuiTypography-body1"
+              >
+                Metascore: 
+                86
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body1"
+              />
+            </div>
+          </div>
+          <span
+            className="MuiCardActionArea-focusHighlight"
+          />
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item"
+    >
+      <a
+        className="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
+        href="/film/Titanic"
+        onClick={[Function]}
+      >
+        <button
+          className="MuiButtonBase-root MuiCardActionArea-root makeStyles-card-1"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <img
+            className="MuiCardMedia-root makeStyles-media-2 MuiCardMedia-media MuiCardMedia-img"
+            src="https://m.media-amazon.com/images..."
+            title="Titanic"
+          />
+          <div
+            className="MuiCardContent-root"
+            gutterbottom="true"
+          >
+            <h3
+              className="MuiTypography-root MuiTypography-h5"
+            >
+              Titanic
+            </h3>
+            <p
+              className="MuiTypography-root makeStyles-title-3 MuiTypography-body1"
+            >
+              Synopsis: 
+            </p>
+            <p
+              className="MuiTypography-root makeStyles-subtitle-4 MuiTypography-body1"
+            >
+              A seventeen-year-old aristocrat falls in love with...
+            </p>
+            <div>
+              <p
+                className="MuiTypography-root MuiTypography-body1"
+              >
+                Metascore: 
+                86
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body1"
+              />
+            </div>
+          </div>
+          <span
+            className="MuiCardActionArea-focusHighlight"
+          />
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+    </div>
+  </div>,
+]
+`;
