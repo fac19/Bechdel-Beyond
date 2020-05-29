@@ -1,7 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Get movie details section renders correctly on movie page 1`] = `
+exports[`should render <loading> on movie details section if no data 1`] = `
 <h1>
-  Locading
+  Loading
 </h1>
+`;
+
+exports[`should render movie details section correctly on movie page 1`] = `
+Array [
+  <h3
+    className="MuiTypography-root MuiTypography-h4"
+  >
+    Titanic
+  </h3>,
+  <h3
+    className="MuiTypography-root MuiTypography-h6"
+  >
+    Director: 
+    James
+  </h3>,
+  <h3
+    className="MuiTypography-root MuiTypography-h6"
+  >
+    Producer: 
+    Gio
+  </h3>,
+  <h3
+    className="MuiTypography-root MuiTypography-h6"
+  >
+    Country: 
+    USA
+  </h3>,
+  <h3
+    className="MuiTypography-root MuiTypography-h6"
+  >
+    Year: 
+    1997
+  </h3>,
+  <h3
+    className="MuiTypography-root MuiTypography-h6"
+  >
+    Runtime: 
+    194min
+  </h3>,
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
+    Plot: 
+    A seventeen-year-old aristocrat falls in love with...
+  </p>,
+]
 `;

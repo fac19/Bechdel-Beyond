@@ -1,13 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Cast stats section renders correctly on movie page 1`] = `
+exports[`should render <lodading> in crew stats section if no data 1`] = `
+<h1>
+  Loading
+</h1>
+`;
+
+exports[`should render <lodading> in csst stats section if no data 1`] = `
 <h1>
   Locading
 </h1>
 `;
 
-exports[`Cre stats section renders correctly on movie page 1`] = `
-<h1>
-  Loading
-</h1>
+exports[`should render cast stats section correctly if data provided 1`] = `
+Array [
+  <h3
+    className="MuiTypography-root MuiTypography-h5"
+  >
+    Cast gender balance:
+  </h3>,
+  <h3
+    className="MuiTypography-root MuiTypography-h5"
+  >
+    Female: 
+    27
+  </h3>,
+  <h3
+    className="MuiTypography-root MuiTypography-h5"
+  >
+    Male: 
+    51
+  </h3>,
+  <h3
+    className="MuiTypography-root MuiTypography-h5"
+  >
+    Not declared: 
+    38
+  </h3>,
+]
+`;
+
+exports[`should render crew stats section correctly if data provided 1`] = `
+Array [
+  <h3
+    className="MuiTypography-root MuiTypography-h5"
+  >
+    Crew gender balance:
+  </h3>,
+  <h3
+    className="MuiTypography-root MuiTypography-h5"
+  >
+    Female: 
+    3
+  </h3>,
+  <h3
+    className="MuiTypography-root MuiTypography-h5"
+  >
+    Male: 
+    2
+  </h3>,
+  <h3
+    className="MuiTypography-root MuiTypography-h5"
+  >
+    Not declared: 
+    34
+  </h3>,
+]
 `;
