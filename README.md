@@ -53,14 +53,14 @@ Our project uses multiple API's but we wanted to build on their limitations:
 - CodeCov
 - Travis
 
-## APIs used  
+## APIs used in the backend
+
+**You can find the backend API for this app [here](https://github.com/fac19/Bechdel-Beyond-backend)**
 
 - [The Movie DB API](https://www.themoviedb.org/documentation/api) was used to get a list of films. Search was done by year and 1997 was selected since Titanic was always comming up in our search for APIs to use.
 - [The Movie Open Database](http://www.omdbapi.com/) was used to get film details for a given film title
 - [The Movie DB API](https://www.themoviedb.org/documentation/api) was used again to get cast and crew information for a given film id (provided by the first query)
 - [Bechdel Test Movie List](https://bechdeltest.com/api/v1/doc) was used to get Bechdel test reviews for a given film title
-
-
 
 ## Future developments
 
@@ -70,6 +70,7 @@ With more time we would:
 - Filter function so users can filter by gender ratio/ director's gender etc.
 - Add playlist feature - user can create playlists of movies they like and view playlists created by other users
 - Use infographics to display the gender parity data
+- User testing with the final product
 
 
 ## Credits
@@ -82,6 +83,6 @@ Built by:
 - [James](https://github.com/jamesj-0) - Scrum
 - [Gio](https://github.com/glrta) - QA
 
-Planning was done on [Notion](https://www.notion.so/Bechdel-and-beyond-fcacd0381bb04b5089cdb0062609fdba) and [Miro](https://miro.com/app/board/o9J_ks1wjnI=/)
+Planning was done on [Notion](https://www.notion.so/Bechdel-and-beyond-fcacd0381bb04b5089cdb0062609fdba) and [Miro](https://miro.com/app/board/o9J_ks1wjnI=/). Prototyping was done on [Figma](https://www.figma.com/file/ZSdbORvFSb5z5jTmqhZnd6/Bechdel?node-id=0%3A1)
 
-**You can find the backend API for this app [here](https://github.com/fac19/Bechdel-Beyond-backend)**
+
