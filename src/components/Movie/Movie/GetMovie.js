@@ -24,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
 	ratings: {
 		textAlign: 'left',
 	},
+	score: {
+		fontFamily: 'Montserrat, sans-serif',
+		fontSize: '1.3rem',
+		fontWeight: 'Semi-bold',
+	},
 }));
 
 export default function GetMovie({ movieData, reviewData }) {
@@ -45,13 +50,13 @@ export default function GetMovie({ movieData, reviewData }) {
 				title={movieData.title}
 			/>
 			<div className={classes.ratings}>
-				<Typography variant="h5" component="h3">
+				<Typography variant="body1" className={classes.score}>
 					Metascore: {movieData.ratings}
 				</Typography>
-				<Typography variant="h5" component="h3">
+				<Typography variant="body1" className={classes.score}>
 					Bechdel: {calculateBechdel(reviewData)}
 				</Typography>
-				<Typography variant="h5" component="h3">
+				<Typography variant="body1" className={classes.score}>
 					Beyond: {calculateBeyond(reviewData)}
 				</Typography>
 			</div>

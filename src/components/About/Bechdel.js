@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	button: {
 		display: 'block',
-		width: '50%',
+		maxWidth: '40%',
 		margin: '0 auto',
 		marginTop: '4rem',
 	},
@@ -50,8 +50,9 @@ const useStyles = makeStyles((theme) => ({
 	beyond: {
 		textAlign: 'center',
 	},
-	header: {
-		marginTop: '2rem',
+	beyondHeader: {
+		marginTop: '3rem',
+		fontSize: '1.5rem',
 		fontFamily: 'Merriweather, serif',
 	},
 	questions: {
@@ -61,13 +62,19 @@ const useStyles = makeStyles((theme) => ({
 	demos: {
 		display: 'flex',
 		justifyContent: 'center',
-		padding: '',
+		padding: '5px 7px',
 	},
 	paper: {
-		margin: '8% 10%',
+		margin: '4% 10%',
 		padding: theme.spacing(2),
 		textAlign: 'center',
 		color: theme.palette.text.secondary,
+	},
+	emojiBox: {
+		margin: '2% auto',
+		display: 'block',
+		maxWidth: '50%',
+		fontSize: '1.5rem',
 	},
 }));
 
@@ -113,10 +120,9 @@ export default function BechdelPage() {
 				</>
 			) : (
 				<div className={classes.beyond}>
-					<Typography className={classes.header} variant="h6">
+					<Typography className={classes.beyondHeader} variant="h6">
 						Help others find more diverse and interesting movies by sharing:
 					</Typography>
-					<Divider className={classes.stepperLine} />
 
 					<Typography className={classes.questions}>
 						Does the movie pass the Bechdel Test?
@@ -128,9 +134,11 @@ export default function BechdelPage() {
 					<Typography className={classes.questions}>
 						Are you satisfied with the gender representation?
 					</Typography>
-					<span role="img" aria-label="emojis" className={classes.demos}>
-						🤬 😞 😕 🙂 💖
-					</span>
+					<div className={classes.emojiBox}>
+						<span role="img" aria-label="emojis" className={classes.demos}>
+							🤬 😞 😕 🙂 💖
+						</span>
+					</div>
 				</div>
 			)}
 			<Divider className={classes.stepperLine} />

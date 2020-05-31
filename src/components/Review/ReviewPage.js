@@ -23,9 +23,15 @@ const useStyles = makeStyles((theme) => ({
 		flexDirection: 'column',
 		alignItems: 'center',
 	},
-
+	title: {
+		marginTop: '3rem',
+		textAlign: 'center',
+		fontSize: '2rem',
+		fontFamily: 'Merriweather, serif',
+		fontWeight: 'bold',
+	},
 	media: {
-		height: '250px',
+		height: '300px',
 	},
 	avatar: {
 		margin: theme.spacing(1),
@@ -125,8 +131,8 @@ export default function ReviewPage({ match: { params }, filmData }) {
 			) : (
 				<Container component="main" maxWidth="xs">
 					<CssBaseline />
-					<Typography component="h1" variant="h5">
-						Review
+					<Typography component="h1" className={classes.title}>
+						{movie.title}
 					</Typography>
 					<form
 						className={classes.form}
@@ -137,7 +143,6 @@ export default function ReviewPage({ match: { params }, filmData }) {
 						}}
 					>
 						<Container>
-							<Typography>{movie.title}</Typography>
 							{activeStep !== 3 ? (
 								<CardMedia
 									className={classes.media}
