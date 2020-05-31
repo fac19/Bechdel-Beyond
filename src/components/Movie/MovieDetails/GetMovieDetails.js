@@ -9,12 +9,9 @@ const useStyles = makeStyles((theme) => ({
 		'display': 'flex',
 		'flexDirection': 'row',
 		'justifyContent': 'center',
+		'alignItems': 'center',
 		'& h6': {
 			fontFamily: 'Montserrat, sans-serif',
-		},
-		'& p': {
-			fontFamily: 'Montserrat, sans-serif',
-			fontSize: '.9rem',
 		},
 	},
 	credits: {
@@ -34,8 +31,7 @@ const useStyles = makeStyles((theme) => ({
 	plot: {
 		textAlign: 'left',
 		maxWidth: '40%',
-		marginTop: '1rem',
-		marginLeft: '2rem',
+		marginLeft: '5%',
 	},
 	runtime: {
 		textAlign: 'right',

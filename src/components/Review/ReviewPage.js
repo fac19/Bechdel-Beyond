@@ -15,13 +15,15 @@ import Button from '@material-ui/core/Button';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import Divider from '@material-ui/core/Divider';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
-	paper: {
-		marginTop: theme.spacing(8),
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
+	root: {
+		'fontFamily': 'Montserrat, sans-serif',
+		'& body1': {
+			fontFamily: 'Montserrat, sans-serif',
+		},
 	},
 	title: {
 		marginTop: '3rem',
@@ -33,13 +35,38 @@ const useStyles = makeStyles((theme) => ({
 	media: {
 		height: '300px',
 	},
-	avatar: {
-		margin: theme.spacing(1),
-		backgroundColor: theme.palette.secondary.main,
+	paper: {
+		color: theme.palette.text.secondary,
+	},
+	question: {
+		marginTop: '2rem',
+		fontFamily: 'Montserrat, sans-serif',
+		textAlign: 'center',
+		padding: '3% 5%',
+		fontSize: '1.3rem',
 	},
 	form: {
 		width: '100%', // Fix IE 11 issue.
 		margin: theme.spacing(6, 0, 2),
+	},
+	radio: {
+		display: 'block',
+		margin: '4% auto',
+		textAlign: 'center',
+		fontFamily: 'Montserrat, sans-serif',
+	},
+	beyond: {
+		margin: '1.5rem',
+		fontFamily: 'Montserrat, sans-serif',
+		lineHeight: '1.7',
+	},
+	comment: {
+		fontFamily: 'Montserrat, sans-serif',
+		fontSize: '1.2rem',
+		padding: '1%',
+		display: 'block',
+		margin: '4% auto',
+		textAlign: 'center',
 	},
 	submit: {
 		margin: theme.spacing(3, 0, 2),
@@ -134,6 +161,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 					<Typography component="h1" className={classes.title}>
 						{movie.title}
 					</Typography>
+					<Divider />
 					<form
 						className={classes.form}
 						noValidate
@@ -154,7 +182,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 								''
 							)}
 
-							<Typography>
+							<Paper className={classes.question}>
 								{activeStep === 0
 									? (reviewQuestion = 'Are there at least 2 women ?')
 									: activeStep === 1
@@ -164,7 +192,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 											'Do they talk about something other than men ?')
 									: (reviewQuestion =
 											'How satisfied were you with the gender representation?')}
-							</Typography>
+							</Paper>
 							{activeStep === 0 ? (
 								<RadioGroup
 									aria-label={reviewQuestion}
@@ -172,6 +200,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 									name="bechdel_1"
 									row
 									value={radioValue}
+									className={classes.radio}
 								>
 									<FormControlLabel
 										value="true"
@@ -193,6 +222,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 									name="bechdel_2"
 									row
 									value={radioValue}
+									className={classes.radio}
 								>
 									<FormControlLabel
 										value="true"
@@ -214,6 +244,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 									name="bechdel_3"
 									row
 									value={radioValue}
+									className={classes.radio}
 								>
 									<FormControlLabel
 										value="true"
@@ -230,12 +261,14 @@ export default function ReviewPage({ match: { params }, filmData }) {
 								</RadioGroup>
 							) : (
 								<>
-									<Typography>Things to think about:</Typography>
-									<Typography>How many of the cast are women?</Typography>
-									<Typography>
-										What percentage of the dialogue do they speak?
-									</Typography>
-									<Typography>Do they drive their own choices?</Typography>
+									<fieldset className={classes.beyond}>
+										<legend>
+											<b>Things to think about:</b>
+										</legend>
+										How many of the cast are women? What percentage of the
+										dialogue do they speak?<br></br>
+										Do they drive their own choices?
+									</fieldset>
 									<RadioGroup
 										aria-label={reviewQuestion}
 										checked={false}
@@ -274,15 +307,17 @@ export default function ReviewPage({ match: { params }, filmData }) {
 											label="💖"
 										/>
 									</RadioGroup>
-									<Typography>Let us know what you thought!</Typography>
-									<TextField
-										id="outlined-basic"
-										label="Outlined"
-										variant="outlined"
-										name="comment"
-										onChange={handleEvent}
-									/>
-
+									<div className={classes.comment}>
+										Let us know what you thought!
+										<TextField
+											id="outlined-basic"
+											aria-label="comment"
+											variant="outlined"
+											name="comment"
+											placeholder="It was..."
+											onChange={handleEvent}
+										/>
+									</div>
 									<Button
 										type="submit"
 										fullWidth
