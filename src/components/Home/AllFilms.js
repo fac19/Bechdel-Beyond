@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import IconButton from '@material-ui/core/IconButton';
+import Divider from '@material-ui/core/Divider';
 
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -17,8 +18,8 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
 	card: {
 		width: '300px',
-		height: '525px',
-		margin: '.5rem',
+		maxHeight: '550px',
+		margin: '.7rem',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
@@ -30,13 +31,20 @@ const useStyles = makeStyles((theme) => ({
 		textDecoration: 'none',
 	},
 	title: {
-		fontSize: '20px',
+		fontSize: '1.3rem',
 		fontWeight: 'bold',
 		marginBottom: '5px',
+		fontFamily: 'Merriweather, serif',
 	},
 	subtitle: {
+		fontSize: '1rem',
+		margin: '3% auto',
+		fontFamily: 'Montserrat, sans-serif',
+	},
+	plot: {
 		fontSize: '14px',
 		marginBottom: '7px',
+		fontFamily: 'Montserrat, sans-serif',
 	},
 	ratings: {
 		fontWeight: 'bold',
@@ -51,11 +59,13 @@ const useStyles = makeStyles((theme) => ({
 	input: {
 		marginLeft: theme.spacing(1),
 		flex: 1,
+		fontFamily: 'Montserrat, sans-serif',
 	},
 	iconButton: {
 		padding: 10,
 	},
 	searchWrapper: {
+		marginBottom: '4%',
 		padding: '40px 10px 10px 10px',
 		display: 'flex',
 		alignItems: 'center',
@@ -63,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function AllFilms({ filmData, setFilmData }) {
+export default function AllFilms({ filmData }) {
 	const [movieTitle, setMovieTitle] = React.useState('');
 	const [currentMovies, setCurrentMovies] = React.useState([]);
 	const classes = useStyles();
@@ -85,7 +95,7 @@ export default function AllFilms({ filmData, setFilmData }) {
 	}, [movieTitle, filmData]);
 
 	if (!filmData) return null;
-
+	console.log(filmData);
 	const showPoster = (poster) => {
 		if (poster.status === 404) {
 			return 'https://stockpictures.io/wp-content/uploads/2020/01/image-not-found-big-768x432.png';
@@ -137,6 +147,7 @@ export default function AllFilms({ filmData, setFilmData }) {
 											src={showPoster(film.poster)}
 											title={film.title}
 										/>
+
 										<CardContent gutterbottom="true">
 											<Typography
 												className={classes.title}
@@ -145,9 +156,12 @@ export default function AllFilms({ filmData, setFilmData }) {
 											>
 												{film.title}
 											</Typography>
-											<Typography>{'Synopsis: '}</Typography>
+											<Divider className={classes.divider} />
+											<Typography className={classes.subtitle}>
+												{'Synopsis: '}
+											</Typography>
 											<Typography
-												className={classes.subtitle}
+												className={classes.plot}
 												variant="body1"
 												component="p"
 											>

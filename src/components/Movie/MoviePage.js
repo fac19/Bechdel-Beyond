@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Button } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 import GetMovie from './Movie/GetMovie';
 import GetMovieDetails from './MovieDetails/GetMovieDetails';
@@ -17,12 +18,36 @@ import {
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		flexGrow: 1,
+		'flexGrow': 1,
+		'& h4': {
+			fontFamily: 'Montserrat, sans-serif',
+			fontWeight: 'Semi-bold',
+			padding: '1%',
+		},
 	},
 	paper: {
 		padding: theme.spacing(2),
 		textAlign: 'center',
 		color: theme.palette.text.secondary,
+	},
+	reviewButton: {
+		margin: theme.spacing(3),
+		padding: '1% 3%',
+		fontFamily: 'Montserrat, sans-serif',
+		fontWeight: 'Semi-bold',
+	},
+	line: {
+		margin: '0 auto',
+		width: '60%',
+	},
+	comment: {
+		marginTop: '1rem',
+		padding: '0.8rem',
+		fontSize: '1rem',
+	},
+	date: {
+		marginTop: '.5rem',
+		fontSize: '.8rem',
 	},
 }));
 
@@ -64,11 +89,12 @@ export default function MoviePage({ match: { params } }) {
 							statsCrewData={statsCrewData}
 						/>
 						<Button
+							className={classes.reviewButton}
 							variant="outlined"
 							component={Link}
 							to={`/create-review/${params.title}`}
 						>
-							Write Review
+							Write A Review
 						</Button>
 					</Paper>
 				</Grid>
@@ -84,16 +110,13 @@ export default function MoviePage({ match: { params } }) {
 				</Grid>
 				<Grid item xs={12}>
 					<Paper className={classes.paper}>
-						<Typography variant="h4" component="h4">
-							Comments
-						</Typography>
+						<Typography variant="h4">Comments</Typography>
+						<Divider className={classes.line} />
 						{reviewData.map((data) => (
-							<>
-								<Typography className={classes.comment}>
-									{data.comment}
-								</Typography>
+							<div className={classes.comment}>
+								<Typography>{data.comment}</Typography>
 								<Typography className={classes.date}>{data.date}</Typography>
-							</>
+							</div>
 						))}
 					</Paper>
 				</Grid>

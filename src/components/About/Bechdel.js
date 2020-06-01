@@ -9,32 +9,72 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import Radio from '@material-ui/core/Radio';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
+		marginTop: '3rem',
 		maxWidth: 400,
 		flexGrow: 1,
 		margin: '0 auto',
 	},
 	title: {
-		marginTop: '2rem',
+		marginTop: '3rem',
 		textAlign: 'center',
 		fontSize: '2rem',
+		fontFamily: 'Merriweather, serif',
+		fontWeight: 'bold',
 	},
 	subtitle: {
 		marginTop: '1rem',
 		textAlign: 'center',
-		fontSize: '1rem',
+		fontSize: '0.7rem',
+		fontFamily: 'Merriweather, serif',
 	},
-	button: {
-		width: '20%',
-		height: 'auto',
+	stepperLine: {
+		width: '70%',
 		margin: '0 auto',
 	},
+	button: {
+		display: 'block',
+		maxWidth: '40%',
+		margin: '0 auto',
+		marginTop: '4rem',
+	},
+	buttonLink: {
+		fontSize: '0.7rem',
+		fontFamily: 'Montserrat, sans-serif',
+	},
+	beyond: {
+		textAlign: 'center',
+	},
+	beyondHeader: {
+		marginTop: '3rem',
+		fontSize: '1.5rem',
+		fontFamily: 'Merriweather, serif',
+	},
+	questions: {
+		marginTop: '3rem',
+		fontFamily: 'Montserrat, sans-serif',
+	},
+	demos: {
+		display: 'flex',
+		justifyContent: 'center',
+		padding: '5px 7px',
+	},
 	paper: {
+		margin: '4% 10%',
 		padding: theme.spacing(2),
 		textAlign: 'center',
 		color: theme.palette.text.secondary,
+	},
+	emojiBox: {
+		margin: '2% auto',
+		display: 'block',
+		maxWidth: '50%',
+		fontSize: '1.5rem',
 	},
 }));
 
@@ -79,23 +119,29 @@ export default function BechdelPage() {
 					</Paper>
 				</>
 			) : (
-				<>
-					<Typography className={classes.title} variant="h6">
+				<div className={classes.beyond}>
+					<Typography className={classes.beyondHeader} variant="h6">
 						Help others find more diverse and interesting movies by sharing:
 					</Typography>
-					<Divider />
 
-					<Typography className={classes.subtitle}>
+					<Typography className={classes.questions}>
 						Does the movie pass the Bechdel Test?
 					</Typography>
-
-					<Divider />
-					<Typography className={classes.subtitle}>
+					<RadioGroup className={classes.demos} name="Test" row>
+						<FormControlLabel value="true" label="Yes" control={<Radio />} />
+						<FormControlLabel value="false" label="No" control={<Radio />} />
+					</RadioGroup>
+					<Typography className={classes.questions}>
 						Are you satisfied with the gender representation?
 					</Typography>
-				</>
+					<div className={classes.emojiBox}>
+						<span role="img" aria-label="emojis" className={classes.demos}>
+							🤬 😞 😕 🙂 💖
+						</span>
+					</div>
+				</div>
 			)}
-			<Divider />
+			<Divider className={classes.stepperLine} />
 
 			<MobileStepper
 				variant="dots"
@@ -124,19 +170,17 @@ export default function BechdelPage() {
 					</Button>
 				}
 			/>
-			<div className={classes.button}>
-				<Button variant="outlined">
-					{activeStep !== 2 ? (
-						<Link component={RouterLink} to="/">
-							Skip to the movies
-						</Link>
-					) : (
-						<Link component={RouterLink} to="/">
-							Show me the movies!
-						</Link>
-					)}
-				</Button>
-			</div>
+			<Button className={classes.button} variant="outlined">
+				{activeStep !== 2 ? (
+					<Link className={classes.buttonLink} component={RouterLink} to="/">
+						Skip to the movies
+					</Link>
+				) : (
+					<Link className={classes.buttonLink} component={RouterLink} to="/">
+						Show me the movies!
+					</Link>
+				)}
+			</Button>
 		</>
 	);
 }

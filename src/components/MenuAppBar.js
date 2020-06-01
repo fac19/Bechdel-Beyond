@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 		color: '#fff',
 		textDecoration: 'none',
 		fontSize: '1.4rem',
+		fontFamily: 'Merriweather, serif',
 	},
 
 	appBar: {
@@ -64,6 +65,9 @@ const useStyles = makeStyles((theme) => ({
 		// necessary for content to be below app bar
 		...theme.mixins.toolbar,
 		justifyContent: 'flex-end',
+	},
+	drawerLink: {
+		fontFamily: 'Montserrat, sans-serif',
 	},
 	content: {
 		flexGrow: 1,
@@ -205,6 +209,7 @@ export default function Navbar({
 							component={Link}
 							key={item.title}
 							to={item.titleHref}
+							className={classes.drawerLink}
 						>
 							<ListItemText primary={item.title} />
 						</ListItem>
