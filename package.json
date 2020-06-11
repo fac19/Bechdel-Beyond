@@ -20,7 +20,10 @@
 		"build": "react-scripts build",
 		"eject": "react-scripts eject",
 		"test": "react-scripts test",
-		"test:report": "react-scripts test --updateSnapshot --coverage --watchAll=false"
+		"test:report": "react-scripts test --updateSnapshot --coverage --watchAll=false",
+		"cy:open": "cypress open",
+		"cy:report": "cypress run --record",
+		"cy:ci": "start-server-and-test start http://localhost:3000 && npm run cy:report"
 	},
 	"husky": {
 		"hooks": {
@@ -47,11 +50,13 @@
 	},
 	"devDependencies": {
 		"codecov": "^3.7.0",
+		"cypress": "^4.8.0",
 		"enzyme": "^3.11.0",
 		"enzyme-adapter-react-16": "^1.15.2",
 		"eslint": "^6.8.0",
 		"eslint-config-airbnb": "^18.1.0",
 		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-cypress": "^2.11.1",
 		"eslint-plugin-import": "^2.20.2",
 		"eslint-plugin-jsx-a11y": "^6.2.3",
 		"eslint-plugin-react": "^7.20.0",
@@ -60,11 +65,13 @@
 		"lint-staged": "^10.2.4",
 		"prettier": "^2.0.5",
 		"pretty-quick": "^2.0.1",
-		"react-axe": "^3.4.1"
+		"react-axe": "^3.4.1",
+		"start-server-and-test": "^1.11.0"
 	},
 	"jest": {
 		"coveragePathIgnorePatterns": [
-			"<rootDir>/src/serviceWorker.js"
+			"<rootDir>/src/serviceWorker.js",
+			"<rootDir>cypress"
 		]
 	}
 }
