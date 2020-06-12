@@ -5,19 +5,20 @@ exports[`should render <loading> in AllFilms page if no data 1`] = `null`;
 exports[`should render AllFilms page correctly if data provided 1`] = `
 Array [
   <div
-    className="makeStyles-searchWrapper-8"
+    className="makeStyles-searchWrapper-11"
   >
     <form
-      className="MuiPaper-root makeStyles-root-5 MuiPaper-elevation1 MuiPaper-rounded"
+      className="MuiPaper-root makeStyles-root-8 MuiPaper-elevation1 MuiPaper-rounded"
       onSubmit={[Function]}
     >
       <div
-        className="MuiInputBase-root makeStyles-input-6"
+        className="MuiInputBase-root makeStyles-input-9"
         onClick={[Function]}
       >
         <input
           aria-label="search movies"
           className="MuiInputBase-input"
+          data-cy="search"
           onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
@@ -28,7 +29,7 @@ Array [
       </div>
       <button
         aria-label="search"
-        className="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-7"
+        className="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-10"
         disabled={false}
         onBlur={[Function]}
         onDragLeave={[Function]}
@@ -69,9 +70,11 @@ Array [
   >
     <div
       className="MuiGrid-root MuiGrid-item"
+      data-cy="movie-card-container"
     >
       <a
-        className="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
+        className="MuiPaper-root MuiCard-root makeStyles-cardlink-3 MuiPaper-elevation1 MuiPaper-rounded"
+        data-cy="movie-card"
         href="/film/Titanic"
         onClick={[Function]}
       >
@@ -102,21 +105,27 @@ Array [
             gutterbottom="true"
           >
             <h3
-              className="MuiTypography-root MuiTypography-h5"
+              className="MuiTypography-root makeStyles-title-4 MuiTypography-h5"
+              data-cy="card-title"
             >
               Titanic
             </h3>
+            <hr
+              className="MuiDivider-root"
+            />
             <p
-              className="MuiTypography-root makeStyles-title-3 MuiTypography-body1"
+              className="MuiTypography-root makeStyles-subtitle-5 MuiTypography-body1"
             >
               Synopsis: 
             </p>
             <p
-              className="MuiTypography-root makeStyles-subtitle-4 MuiTypography-body1"
+              className="MuiTypography-root makeStyles-plot-6 MuiTypography-body1"
             >
               A seventeen-year-old aristocrat falls in love with...
             </p>
-            <div>
+            <div
+              className="makeStyles-ratings-7"
+            >
               <p
                 className="MuiTypography-root MuiTypography-body1"
               >
@@ -139,9 +148,11 @@ Array [
     </div>
     <div
       className="MuiGrid-root MuiGrid-item"
+      data-cy="movie-card-container"
     >
       <a
-        className="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
+        className="MuiPaper-root MuiCard-root makeStyles-cardlink-3 MuiPaper-elevation1 MuiPaper-rounded"
+        data-cy="movie-card"
         href="/film/Titanic"
         onClick={[Function]}
       >
@@ -172,21 +183,27 @@ Array [
             gutterbottom="true"
           >
             <h3
-              className="MuiTypography-root MuiTypography-h5"
+              className="MuiTypography-root makeStyles-title-4 MuiTypography-h5"
+              data-cy="card-title"
             >
               Titanic
             </h3>
+            <hr
+              className="MuiDivider-root"
+            />
             <p
-              className="MuiTypography-root makeStyles-title-3 MuiTypography-body1"
+              className="MuiTypography-root makeStyles-subtitle-5 MuiTypography-body1"
             >
               Synopsis: 
             </p>
             <p
-              className="MuiTypography-root makeStyles-subtitle-4 MuiTypography-body1"
+              className="MuiTypography-root makeStyles-plot-6 MuiTypography-body1"
             >
               A seventeen-year-old aristocrat falls in love with...
             </p>
-            <div>
+            <div
+              className="makeStyles-ratings-7"
+            >
               <p
                 className="MuiTypography-root MuiTypography-body1"
               >

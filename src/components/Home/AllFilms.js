@@ -128,15 +128,16 @@ export default function AllFilms({ filmData }) {
 			</div>
 			<Grid container justify="center">
 				{currentMovies.length < 1 ? (
-					<Typography variant="h5" component="h3">
+					<Typography data-cy={'not-found'} variant="h5" component="h3">
 						No movies from your search
 					</Typography>
 				) : (
 					<>
 						{currentMovies.map((film) => (
-							<Grid item key={film.movapi_id}>
+							<Grid data-cy={'movie-card-container'} item key={film.movapi_id}>
 								<Card
 									className={classes.cardlink}
+									data-cy={'movie-card'}
 									component={Link}
 									to={`/film/${film.title}`}
 								>
