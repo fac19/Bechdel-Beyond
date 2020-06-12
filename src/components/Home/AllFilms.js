@@ -115,7 +115,7 @@ export default function AllFilms({ filmData }) {
 						className={classes.input}
 						onChange={(e) => setMovieTitle(e.target.value)}
 						placeholder="Search Movies"
-						inputProps={{ 'aria-label': 'search movies' }}
+						inputProps={{ 'aria-label': 'search movies', 'data-cy': 'search' }}
 					/>
 					<IconButton
 						type="submit"
@@ -150,6 +150,7 @@ export default function AllFilms({ filmData }) {
 
 										<CardContent gutterbottom="true">
 											<Typography
+												data-cy={'card-title'}
 												className={classes.title}
 												variant="h5"
 												component="h3"
