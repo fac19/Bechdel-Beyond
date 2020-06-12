@@ -50,13 +50,25 @@ export default function GetMovie({ movieData, reviewData }) {
 				title={movieData.title}
 			/>
 			<div className={classes.ratings}>
-				<Typography variant="body1" className={classes.score}>
+				<Typography
+					data-cy={'metascore-score'}
+					variant="body1"
+					className={classes.score}
+				>
 					Metascore: {movieData.ratings}
 				</Typography>
-				<Typography variant="body1" className={classes.score}>
+				<Typography
+					data-cy={'bechdel-score'}
+					variant="body1"
+					className={classes.score}
+				>
 					Bechdel: {calculateBechdel(reviewData)}
 				</Typography>
-				<Typography variant="body1" className={classes.score}>
+				<Typography
+					data-cy={'beyond-score'}
+					variant="body1"
+					className={classes.score}
+				>
 					Beyond: {calculateBeyond(reviewData)}
 				</Typography>
 			</div>

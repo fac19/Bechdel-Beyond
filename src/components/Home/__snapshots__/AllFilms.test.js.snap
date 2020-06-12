@@ -74,12 +74,12 @@ Array [
     >
       <a
         className="MuiPaper-root MuiCard-root makeStyles-cardlink-3 MuiPaper-elevation1 MuiPaper-rounded"
-        data-cy="movie-card"
         href="/film/Titanic"
         onClick={[Function]}
       >
         <button
           className="MuiButtonBase-root MuiCardActionArea-root makeStyles-card-1"
+          data-cy="movie-card"
           disabled={false}
           onBlur={[Function]}
           onDragLeave={[Function]}
@@ -152,12 +152,12 @@ Array [
     >
       <a
         className="MuiPaper-root MuiCard-root makeStyles-cardlink-3 MuiPaper-elevation1 MuiPaper-rounded"
-        data-cy="movie-card"
         href="/film/Titanic"
         onClick={[Function]}
       >
         <button
           className="MuiButtonBase-root MuiCardActionArea-root makeStyles-card-1"
+          data-cy="movie-card"
           disabled={false}
           onBlur={[Function]}
           onDragLeave={[Function]}

@@ -58,7 +58,9 @@ export default function GetMovieDetails({ movieData, statsCrewData }) {
 				</Typography>
 			</div>
 			<div className={classes.plot}>
-				<Typography variant="h6">Synopsis</Typography>
+				<Typography data-cy={'synopsis'} variant="h6">
+					Synopsis
+				</Typography>
 				<Typography variant="body1">{movieData.plot}</Typography>
 			</div>
 		</div>

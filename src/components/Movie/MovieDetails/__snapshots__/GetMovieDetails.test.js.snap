@@ -48,6 +48,7 @@ exports[`should render movie details section correctly on movie page 1`] = `
   >
     <h6
       className="MuiTypography-root MuiTypography-h6"
+      data-cy="synopsis"
     >
       Synopsis
     </h6>
