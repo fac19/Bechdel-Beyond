@@ -137,11 +137,13 @@ export default function AllFilms({ filmData }) {
 							<Grid data-cy={'movie-card-container'} item key={film.movapi_id}>
 								<Card
 									className={classes.cardlink}
-									data-cy={'movie-card'}
 									component={Link}
 									to={`/film/${film.title}`}
 								>
-									<CardActionArea className={classes.card}>
+									<CardActionArea
+										data-cy={'movie-card'}
+										className={classes.card}
+									>
 										<CardMedia
 											className={classes.media}
 											component={'img'}

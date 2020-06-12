@@ -15,6 +15,7 @@ exports[`should render <lodading> in csst stats section if no data 1`] = `
 exports[`should render cast stats section correctly if data provided 1`] = `
 <div
   className="makeStyles-ratio-1"
+  data-cy="cast"
 >
   <h3
     className="MuiTypography-root makeStyles-header-2 MuiTypography-h5"
@@ -45,6 +46,7 @@ exports[`should render cast stats section correctly if data provided 1`] = `
 exports[`should render crew stats section correctly if data provided 1`] = `
 <div
   className="makeStyles-ratio-1"
+  data-cy="crew"
 >
   <h3
     className="MuiTypography-root makeStyles-header-2 MuiTypography-h5"

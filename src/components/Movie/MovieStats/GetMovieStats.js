@@ -24,7 +24,7 @@ export function GetMovieStatsCast({ statsCastData }) {
 
 	if (!statsCastData) return <h1>Locading</h1>;
 	return (
-		<div className={classes.ratio}>
+		<div data-cy={'cast'} className={classes.ratio}>
 			<Typography className={classes.header} variant="h5" component="h3">
 				Cast gender balance:
 			</Typography>
@@ -47,7 +47,7 @@ export function GetMovieStatsCrew({ statsCrewData }) {
 	if (!statsCrewData) return <h1>Loading</h1>;
 
 	return (
-		<div className={classes.ratio}>
+		<div data-cy={'crew'} className={classes.ratio}>
 			<Typography className={classes.header} variant="h5" component="h3">
 				Crew gender balance:
 			</Typography>
