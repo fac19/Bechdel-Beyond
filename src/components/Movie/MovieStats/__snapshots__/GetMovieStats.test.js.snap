@@ -13,57 +13,61 @@ exports[`should render <lodading> in csst stats section if no data 1`] = `
 `;
 
 exports[`should render cast stats section correctly if data provided 1`] = `
-Array [
+<div
+  className="makeStyles-ratio-1"
+>
   <h3
-    className="MuiTypography-root MuiTypography-h5"
+    className="MuiTypography-root makeStyles-header-2 MuiTypography-h5"
   >
     Cast gender balance:
-  </h3>,
-  <h3
-    className="MuiTypography-root MuiTypography-h5"
+  </h3>
+  <h6
+    className="MuiTypography-root MuiTypography-h6"
   >
     Female: 
     27
-  </h3>,
-  <h3
-    className="MuiTypography-root MuiTypography-h5"
+  </h6>
+  <h6
+    className="MuiTypography-root MuiTypography-h6"
   >
     Male: 
     51
-  </h3>,
-  <h3
-    className="MuiTypography-root MuiTypography-h5"
+  </h6>
+  <h6
+    className="MuiTypography-root MuiTypography-h6"
   >
     Not declared: 
     38
-  </h3>,
-]
+  </h6>
+</div>
 `;
 
 exports[`should render crew stats section correctly if data provided 1`] = `
-Array [
+<div
+  className="makeStyles-ratio-1"
+>
   <h3
-    className="MuiTypography-root MuiTypography-h5"
+    className="MuiTypography-root makeStyles-header-2 MuiTypography-h5"
   >
     Crew gender balance:
-  </h3>,
-  <h3
-    className="MuiTypography-root MuiTypography-h5"
+  </h3>
+  <h6
+    className="MuiTypography-root MuiTypography-h6"
   >
     Female: 
     3
-  </h3>,
-  <h3
-    className="MuiTypography-root MuiTypography-h5"
+  </h6>
+  <h6
+    className="MuiTypography-root MuiTypography-h6"
   >
     Male: 
     2
-  </h3>,
-  <h3
-    className="MuiTypography-root MuiTypography-h5"
+  </h6>
+  <h6
+    className="MuiTypography-root MuiTypography-h6"
   >
     Not declared: 
     34
-  </h3>,
-]
+  </h6>
+</div>
 `;

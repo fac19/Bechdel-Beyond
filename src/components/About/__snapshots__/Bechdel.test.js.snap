@@ -3,25 +3,29 @@
 exports[`should render Bechdel page correctly 1`] = `
 Array [
   <h3
-    className="MuiTypography-root MuiTypography-h3"
+    className="MuiTypography-root makeStyles-title-2 MuiTypography-h3"
   >
     The Bechdel Test
   </h3>,
-  <a
-    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    to=""
-  >
-    Alison Bechdel , Dykes to Watch Out For, 1985
-  </a>,
   <div
-    className="MuiPaper-root makeStyles-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
+    className="makeStyles-subtitle-3"
+  >
+    <a
+      className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      to=""
+    >
+      Alison Bechdel , Dykes to Watch Out For, 1985
+    </a>
+  </div>,
+  <div
+    className="MuiPaper-root makeStyles-paper-11 MuiPaper-elevation1 MuiPaper-rounded"
   >
     A way of evaluating whether or not a movie portrays women in a way that is sexist or characterized by gender stereotyping
   </div>,
   <hr
-    className="MuiDivider-root"
+    className="MuiDivider-root makeStyles-stepperLine-4"
   />,
   <div
     className="MuiPaper-root MuiMobileStepper-root MuiMobileStepper-positionStatic makeStyles-root-1 MuiPaper-elevation0"
@@ -109,7 +113,7 @@ Array [
     </button>
   </div>,
   <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+    className="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-5"
     disabled={false}
     onBlur={[Function]}
     onDragLeave={[Function]}
@@ -129,7 +133,7 @@ Array [
       className="MuiButton-label"
     >
       <a
-        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-buttonLink-6 MuiTypography-colorPrimary"
         href="/"
         onBlur={[Function]}
         onClick={[Function]}
