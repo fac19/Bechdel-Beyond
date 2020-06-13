@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/fac19/Bechdel-Beyond.svg?branch=master)](https://travis-ci.com/fac19/Bechdel-Beyond)
+[![Build Status](https://travis-ci.com/fac19/Bechdel-Beyond.svg?branch=master)](https://travis-ci.com/fac19/Bechdel-Beyond) [![codecov](https://codecov.io/gh/fac19/Bechdel-Beyond/branch/master/graph/badge.svg)](https://codecov.io/gh/fac19/Bechdel-Beyond)
 
 # Bechdel & Beyond :movie_camera:
 
