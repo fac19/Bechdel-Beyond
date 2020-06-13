@@ -68,6 +68,6 @@ describe('Learn what the Bechdel test is', () => {
 
 	it('shows button to go back to homepage', () => {
 		cy.get('[data-cy=btn-homepage]').click();
-		cy.url().should('eq', 'http://localhost:3000/');
+		cy.url().should('eq', Cypress.config().baseUrl + '/');
 	});
 });

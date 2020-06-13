@@ -30,9 +30,9 @@ describe('Find films and search on homepage', () => {
 			.and('be.visible');
 	});
 
-	it('"Search movies" takes to homepage"', () => {
+	it('"Search movies" takes to homepage', () => {
 		cy.get('[data-cy=menu]').click();
 		cy.get('[data-cy=menu-item]').contains('Search Movies').click();
-		cy.url().should('eq', 'http://localhost:3000/');
+		cy.url().should('eq', Cypress.config().baseUrl + '/');
 	});
 });
