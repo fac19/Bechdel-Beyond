@@ -7,8 +7,10 @@
 
 # testing
 /coverage
+/cypress-coverage
 cypress/videos
 _snapshots_
+.nyc_output
 
 # production
 /build
