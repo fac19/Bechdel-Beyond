@@ -9,4 +9,4 @@ cache:
 script:
   - npm run build
   - npm run test:report && codecov
-  - npm run cy:ci
+  - npm run cy:ci && codecov
