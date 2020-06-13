@@ -75,5 +75,8 @@
 			"<rootDir>/src/serviceWorker.js",
 			"<rootDir>cypress"
 		]
-	}
+	},
+  "nyc": {
+    "exclude": "src/serviceWorker.js"
+  }
 }
