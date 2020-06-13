@@ -44,7 +44,7 @@ export default function GetMovieDetails({ movieData, statsCrewData }) {
 	if (!movieData) return <h1>Loading</h1>;
 	return (
 		<div className={classes.root}>
-			<div className={classes.credits}>
+			<div data-cy={'credits'} className={classes.credits}>
 				<Typography className={classes.title} variant="h4" component="h3">
 					{movieData.title}
 				</Typography>
@@ -57,10 +57,8 @@ export default function GetMovieDetails({ movieData, statsCrewData }) {
 					{movieData.runtime}
 				</Typography>
 			</div>
-			<div className={classes.plot}>
-				<Typography data-cy={'synopsis'} variant="h6">
-					Synopsis
-				</Typography>
+			<div data-cy={'synopsis'} className={classes.plot}>
+				<Typography variant="h6">Synopsis</Typography>
 				<Typography variant="body1">{movieData.plot}</Typography>
 			</div>
 		</div>

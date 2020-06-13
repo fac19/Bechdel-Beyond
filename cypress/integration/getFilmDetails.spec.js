@@ -15,10 +15,36 @@ describe('Get film details', () => {
 		cy.get('[data-cy=beyond-score]').contains('Beyond');
 	});
 
+	it('shows film poster', () => {
+		cy.get('[data-cy=movie-poster]')
+			.should('have.attr', 'title', 'titanic')
+			.and('be.visible');
+	});
+
+	it('shows credits info', () => {
+		cy.get('[data-cy=credits]')
+			.children()
+			.should('have.length', 5)
+			.and('be.visible');
+
+		cy.get('[data-cy=credits]').children().contains('titanic');
+
+		cy.get('[data-cy=credits]').children().contains('Director: James Cameron');
+
+		cy.get('[data-cy=credits]').children().contains('Producer: Jon Landau');
+
+		cy.get('[data-cy=credits]').children().contains('USA, 1997');
+
+		cy.get('[data-cy=credits]').children().contains('194 min');
+	});
+
 	// As a user I want to see a good synopsis on a film page
 	it('shows film synopsis', () => {
 		cy.get('[data-cy=synopsis]')
-			.should('contain', 'Synopsis')
+			.should(
+				'contain',
+				'A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.',
+			)
 			.and('be.visible');
 	});
 
@@ -28,5 +54,11 @@ describe('Get film details', () => {
 
 		cy.get('[data-cy=crew]').children().should('have.length', 4);
 		cy.get('[data-cy=crew]').should('contain', 'Crew').and('be.visible');
+	});
+
+	it('Home button redirects to homepage', () => {
+		cy.get('[data-cy=toolbar]');
+		cy.contains('Bechdel & Beyond').click();
+		cy.url().should('include', '/');
 	});
 });

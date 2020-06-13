@@ -149,6 +149,7 @@ export default function AllFilms({ filmData }) {
 											component={'img'}
 											src={showPoster(film.poster)}
 											title={film.title}
+											data-cy={'card-poster'}
 										/>
 
 										<CardContent gutterbottom="true">
@@ -161,7 +162,10 @@ export default function AllFilms({ filmData }) {
 												{film.title}
 											</Typography>
 											<Divider className={classes.divider} />
-											<Typography className={classes.subtitle}>
+											<Typography
+												data-cy={'card-plot'}
+												className={classes.subtitle}
+											>
 												{'Synopsis: '}
 											</Typography>
 											<Typography
@@ -171,7 +175,7 @@ export default function AllFilms({ filmData }) {
 											>
 												{film.plot}
 											</Typography>
-											<div className={classes.ratings}>
+											<div data-cy={'card-scores'} className={classes.ratings}>
 												<Typography>Metascore: {film.ratings}</Typography>
 												<Typography></Typography>
 											</div>

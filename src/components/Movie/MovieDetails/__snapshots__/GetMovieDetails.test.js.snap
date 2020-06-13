@@ -12,6 +12,7 @@ exports[`should render movie details section correctly on movie page 1`] = `
 >
   <div
     className="makeStyles-credits-2"
+    data-cy="credits"
   >
     <h3
       className="MuiTypography-root makeStyles-title-3 MuiTypography-h4"
@@ -45,10 +46,10 @@ exports[`should render movie details section correctly on movie page 1`] = `
   </div>
   <div
     className="makeStyles-plot-5"
+    data-cy="synopsis"
   >
     <h6
       className="MuiTypography-root MuiTypography-h6"
-      data-cy="synopsis"
     >
       Synopsis
     </h6>
