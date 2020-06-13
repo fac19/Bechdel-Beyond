@@ -95,31 +95,43 @@ export default function BechdelPage() {
 		<>
 			{activeStep === 0 ? (
 				<>
-					<Typography className={classes.title} variant="h3">
+					<Typography
+						data-cy={'bechdel-setp-one'}
+						className={classes.title}
+						variant="h3"
+					>
 						The Bechdel Test
 					</Typography>
-					<div className={classes.subtitle}>
+					<div data-cy={'bechdel-author'} className={classes.subtitle}>
 						<Link to="">Alison Bechdel , Dykes to Watch Out For, 1985</Link>
 					</div>
 
-					<Paper className={classes.paper}>
+					<Paper data-cy={'bechdel-idea'} className={classes.paper}>
 						A way of evaluating whether or not a movie portrays women in a way
 						that is sexist or characterized by gender stereotyping
 					</Paper>
 				</>
 			) : activeStep === 1 ? (
 				<>
-					<Typography className={classes.title} variant="h4">
+					<Typography
+						data-cy={'bechdel-rules'}
+						className={classes.title}
+						variant="h4"
+					>
 						A Movie passes if...
 					</Typography>
-					<Paper className={classes.paper}>There are at least 2 women</Paper>
-					<Paper className={classes.paper}>That talk to each other</Paper>
-					<Paper className={classes.paper}>
+					<Paper data-cy={'bechdel-one'} className={classes.paper}>
+						There are at least 2 women
+					</Paper>
+					<Paper data-cy={'bechdel-two'} className={classes.paper}>
+						That talk to each other
+					</Paper>
+					<Paper data-cy={'bechdel-three'} className={classes.paper}>
 						About something other than men.
 					</Paper>
 				</>
 			) : (
-				<div className={classes.beyond}>
+				<div data-cy={'app-mission'} className={classes.beyond}>
 					<Typography className={classes.beyondHeader} variant="h6">
 						Help others find more diverse and interesting movies by sharing:
 					</Typography>
@@ -150,7 +162,12 @@ export default function BechdelPage() {
 				activeStep={activeStep}
 				className={classes.root}
 				nextButton={
-					<Button size="small" onClick={handleNext} disabled={activeStep === 2}>
+					<Button
+						data-cy={'bechdel-next'}
+						size="small"
+						onClick={handleNext}
+						disabled={activeStep === 2}
+					>
 						Next
 						{theme.direction === 'rtl' ? (
 							<KeyboardArrowLeft />
@@ -160,7 +177,12 @@ export default function BechdelPage() {
 					</Button>
 				}
 				backButton={
-					<Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+					<Button
+						data-cy={'bechdel-back'}
+						size="small"
+						onClick={handleBack}
+						disabled={activeStep === 0}
+					>
 						{theme.direction === 'rtl' ? (
 							<KeyboardArrowRight />
 						) : (
@@ -176,7 +198,12 @@ export default function BechdelPage() {
 						Skip to the movies
 					</Link>
 				) : (
-					<Link className={classes.buttonLink} component={RouterLink} to="/">
+					<Link
+						data-cy={'btn-homepage'}
+						className={classes.buttonLink}
+						component={RouterLink}
+						to="/"
+					>
 						Show me the movies!
 					</Link>
 				)}

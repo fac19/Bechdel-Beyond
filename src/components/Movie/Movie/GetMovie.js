@@ -44,6 +44,7 @@ export default function GetMovie({ movieData, reviewData }) {
 	return (
 		<div className={classes.root}>
 			<CardMedia
+				data-cy={'movie-poster'}
 				className={classes.media}
 				component={'img'}
 				src={showPoster(movieData.poster)}

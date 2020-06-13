@@ -97,6 +97,7 @@ Array [
         >
           <img
             className="MuiCardMedia-root makeStyles-media-2 MuiCardMedia-media MuiCardMedia-img"
+            data-cy="card-poster"
             src="https://m.media-amazon.com/images..."
             title="Titanic"
           />
@@ -115,6 +116,7 @@ Array [
             />
             <p
               className="MuiTypography-root makeStyles-subtitle-5 MuiTypography-body1"
+              data-cy="card-plot"
             >
               Synopsis: 
             </p>
@@ -125,6 +127,7 @@ Array [
             </p>
             <div
               className="makeStyles-ratings-7"
+              data-cy="card-scores"
             >
               <p
                 className="MuiTypography-root MuiTypography-body1"
@@ -175,6 +178,7 @@ Array [
         >
           <img
             className="MuiCardMedia-root makeStyles-media-2 MuiCardMedia-media MuiCardMedia-img"
+            data-cy="card-poster"
             src="https://m.media-amazon.com/images..."
             title="Titanic"
           />
@@ -193,6 +197,7 @@ Array [
             />
             <p
               className="MuiTypography-root makeStyles-subtitle-5 MuiTypography-body1"
+              data-cy="card-plot"
             >
               Synopsis: 
             </p>
@@ -203,6 +208,7 @@ Array [
             </p>
             <div
               className="makeStyles-ratings-7"
+              data-cy="card-scores"
             >
               <p
                 className="MuiTypography-root MuiTypography-body1"

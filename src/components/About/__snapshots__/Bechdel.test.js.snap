@@ -4,11 +4,13 @@ exports[`should render Bechdel page correctly 1`] = `
 Array [
   <h3
     className="MuiTypography-root makeStyles-title-2 MuiTypography-h3"
+    data-cy="bechdel-setp-one"
   >
     The Bechdel Test
   </h3>,
   <div
     className="makeStyles-subtitle-3"
+    data-cy="bechdel-author"
   >
     <a
       className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
@@ -21,6 +23,7 @@ Array [
   </div>,
   <div
     className="MuiPaper-root makeStyles-paper-11 MuiPaper-elevation1 MuiPaper-rounded"
+    data-cy="bechdel-idea"
   >
     A way of evaluating whether or not a movie portrays women in a way that is sexist or characterized by gender stereotyping
   </div>,
@@ -32,6 +35,7 @@ Array [
   >
     <button
       className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled"
+      data-cy="bechdel-back"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -79,6 +83,7 @@ Array [
     </div>
     <button
       className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
+      data-cy="bechdel-next"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
