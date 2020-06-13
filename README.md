@@ -4,7 +4,7 @@
 
 A new way to discover, review & share movies that pass the Bechdel Test and go beyond...
 
-![](https://i.imgur.com/AoH51TY.png)
+![](https://i.imgur.com/KmXTczy.png)
 
 ## What is the Bechdel Test? :female_sign:
 
