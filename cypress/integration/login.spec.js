@@ -2,39 +2,31 @@
 
 // Stub fetch object because cypress doesnt handle
 // fetch requests
-const fetchStub = () => {
-	const deferred = {};
+import { fetchStub } from '../support/helpers';
 
-	deferred.promise = new Promise((resolve, reject) => {
-		deferred.resolve = resolve;
-		deferred.reject = reject;
-	});
-	return deferred;
-};
-
-describe('Can sign up', () => {
+describe('Can log in', () => {
 	beforeEach(function () {
 		// register the stub as a local function
 		this.fetchStub = fetchStub();
 	});
 
-	it('should go to sign up form', () => {
+	it('should go to login form', () => {
 		cy.visit('/');
 		cy.get('[data-cy=menu]').click();
-		cy.get('[data-cy=menu-item]').contains('Sign Up').click();
-		cy.url().should('contain', '/signup');
+		cy.get('[data-cy=menu-item]').contains('Login').click();
+		cy.url().should('contain', '/login');
 	});
 
-	it('should not progress if no email or password entered', () => {
-		cy.visit('/signup');
-		cy.get('#Username').type('dummy user');
+	it('should not progress if no password/email entered', () => {
+		cy.visit('/login');
 		cy.get('button[type=submit]').click();
-		cy.url().should('eq', Cypress.config().baseUrl + '/signup');
+		cy.url().should('eq', Cypress.config().baseUrl + '/login');
 	});
 
-	it('should add user', function () {
+	it('should log in', function () {
 		const testToken =
 			'$2a$10$.4XK5WMk1dTdJIpanxAEZOzmZLArCgWzeTTBSDCNqmjtFP/GHvNce';
+
 		// set the reponse we want from fetch
 		this.fetchStub.resolve({
 			json() {
@@ -43,8 +35,7 @@ describe('Can sign up', () => {
 			ok: true,
 		});
 
-		cy.visit('/signup');
-		cy.get('#Username').type('dummy user');
+		cy.visit('/login');
 		cy.get('#email').type('dummy@email.com');
 		cy.get('#password').type('dummypassword');
 
@@ -52,12 +43,12 @@ describe('Can sign up', () => {
 		// with our custom stub fetchStub
 		cy.window().then(function (win) {
 			cy.stub(win, 'fetch')
-				.withArgs('https://apibechdel.herokuapp.com/signup')
-				.as('fetchSignup')
+				.withArgs('https://apibechdel.herokuapp.com/login')
+				.as('fetchLogin')
 				.returns(this.fetchStub.promise);
 		});
 		cy.get('button[type=submit]').click();
-		cy.get('@fetchSignup').should('be.calledOnce');
+		cy.get('@fetchLogin').should('be.calledOnce');
 		cy.window().then((win) => {
 			cy.expect(win.localStorage.getItem('access token')).to.eq(testToken);
 		});
@@ -75,8 +66,7 @@ describe('Can sign up', () => {
 			ok: false,
 		});
 
-		cy.visit('/signup');
-		cy.get('#Username').type('dummy user');
+		cy.visit('/login');
 		cy.get('#email').type('dummy@email.com');
 		cy.get('#password').type('dummypassword');
 
@@ -84,12 +74,12 @@ describe('Can sign up', () => {
 		// with our custom stub fetchStub
 		cy.window().then(function (win) {
 			cy.stub(win, 'fetch')
-				.withArgs('https://apibechdel.herokuapp.com/signup')
-				.as('fetchSignup')
+				.withArgs('https://apibechdel.herokuapp.com/login')
+				.as('fetchLogin')
 				.returns(this.fetchStub.promise);
 		});
 		cy.get('button[type=submit]').click();
-		cy.get('@fetchSignup').should('be.calledOnce');
+		cy.get('@fetchLogin').should('be.calledOnce');
 		cy.window().then((win) => {
 			cy.expect(win.localStorage.getItem('access token')).to.eq(null);
 		});
