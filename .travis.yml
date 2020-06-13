@@ -8,4 +8,5 @@ cache:
     - node_modules
 script:
   - npm run build
-  - npm run test:report && npm run cy:ci && codecov
+  - npm run test:report && codecov
+  - npm run cy:ci && codecov

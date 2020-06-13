@@ -77,6 +77,6 @@
 		]
 	},
   "nyc": {
-    "exclude": "src/serviceWorker.js"
+    "exclude": "<rootDir>/src/serviceWorker.js"
   }
 }
