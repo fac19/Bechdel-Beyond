@@ -95,7 +95,6 @@ export default function AllFilms({ filmData }) {
 	}, [movieTitle, filmData]);
 
 	if (!filmData) return null;
-	console.log(filmData);
 	const showPoster = (poster) => {
 		if (poster.status === 404) {
 			return 'https://stockpictures.io/wp-content/uploads/2020/01/image-not-found-big-768x432.png';
