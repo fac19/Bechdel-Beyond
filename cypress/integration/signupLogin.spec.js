@@ -25,7 +25,7 @@ describe('Can sign up', () => {
 		cy.url().should('contain', '/signup');
 	});
 
-	it.only('should not progress if no email or password entered', () => {
+	it('should not progress if no email or password entered', () => {
 		cy.visit('/signup');
 		cy.get('#Username').type('dummy user');
 		cy.get('button[type=submit]').click();
