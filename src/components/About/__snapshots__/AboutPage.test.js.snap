@@ -47,6 +47,7 @@ Array [
   </h2>,
   <h5
     className="MuiTypography-root makeStyles-subtitle-3 MuiTypography-h5"
+    data-cy="app-info"
   >
     A new way to discover, review & share movies that pass the Bechdel Test and go beyond...
   </h5>,
@@ -58,6 +59,7 @@ Array [
   >
     <button
       className="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-bechdelButton-6"
+      data-cy="bechdel-test"
       disabled={false}
       onBlur={[Function]}
       onDragLeave={[Function]}

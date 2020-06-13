@@ -159,6 +159,7 @@ export default function Navbar({
 			>
 				<Toolbar>
 					<IconButton
+						data-cy={'menu'}
 						color="inherit"
 						aria-label="open drawer"
 						onClick={handleDrawerOpen}
@@ -168,7 +169,12 @@ export default function Navbar({
 						<MenuIcon />
 					</IconButton>
 
-					<Link className={classes.title} to="/" variant="body2">
+					<Link
+						data-cy={'toolbar'}
+						className={classes.title}
+						to="/"
+						variant="body2"
+					>
 						<Typography
 							className={classes.title}
 							variant="h6"
@@ -205,6 +211,7 @@ export default function Navbar({
 								handleDrawerClose();
 								setCurrentPage(item.title);
 							}}
+							data-cy={'menu-item'}
 							button
 							component={Link}
 							key={item.title}

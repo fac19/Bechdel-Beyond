@@ -102,13 +102,22 @@ export default function AboutPage() {
 			<Typography className={classes.title} variant="h2" component="h2">
 				Bechdel & Beyond
 			</Typography>
-			<Typography className={classes.subtitle} variant="h5" component="h5">
+			<Typography
+				data-cy={'app-info'}
+				className={classes.subtitle}
+				variant="h5"
+				component="h5"
+			>
 				A new way to discover, review & share movies that pass the Bechdel Test
 				and go beyond...
 			</Typography>
 			<Divider className={classes.line} />
 			<div className={classes.buttonbox}>
-				<Button className={classes.bechdelButton} variant="outlined">
+				<Button
+					data-cy={'bechdel-test'}
+					className={classes.bechdelButton}
+					variant="outlined"
+				>
 					<Link component={RouterLink} to="/bechdel">
 						How it works
 					</Link>
