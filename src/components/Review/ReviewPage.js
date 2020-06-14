@@ -158,7 +158,11 @@ export default function ReviewPage({ match: { params }, filmData }) {
 			) : (
 				<Container component="main" maxWidth="xs">
 					<CssBaseline />
-					<Typography component="h1" className={classes.title}>
+					<Typography
+						data-cy={'review-movie'}
+						component="h1"
+						className={classes.title}
+					>
 						{movie.title}
 					</Typography>
 					<Divider />
@@ -173,6 +177,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 						<Container>
 							{activeStep !== 3 ? (
 								<CardMedia
+									data-cy={'review-card'}
 									className={classes.media}
 									component={'img'}
 									src={showPoster(movie.poster)}
@@ -182,7 +187,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 								''
 							)}
 
-							<Paper className={classes.question}>
+							<Paper data-cy={'review-question'} className={classes.question}>
 								{activeStep === 0
 									? (reviewQuestion = 'Are there at least 2 women ?')
 									: activeStep === 1
@@ -339,6 +344,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 							className={classes.root}
 							nextButton={
 								<Button
+									data-cy={'review-next'}
 									size="small"
 									onClick={handleNext}
 									disabled={activeStep === 3}
@@ -353,6 +359,7 @@ export default function ReviewPage({ match: { params }, filmData }) {
 							}
 							backButton={
 								<Button
+									data-cy={'review-back'}
 									size="small"
 									onClick={handleBack}
 									disabled={activeStep === 0}
