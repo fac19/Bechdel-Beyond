@@ -227,7 +227,7 @@ export default function Navbar({
 						<Divider />
 						<List>
 							<ListItem onClick={logoutHandler} button key={'Log out'}>
-								<ListItemText primary={'Log out'} />
+								<ListItemText data-cy={'menu-item'} primary={'Log out'} />
 							</ListItem>{' '}
 						</List>
 					</>

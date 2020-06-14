@@ -89,6 +89,7 @@ export default function MoviePage({ match: { params } }) {
 							statsCrewData={statsCrewData}
 						/>
 						<Button
+							data-cy={'give-review'}
 							className={classes.reviewButton}
 							variant="outlined"
 							component={Link}
